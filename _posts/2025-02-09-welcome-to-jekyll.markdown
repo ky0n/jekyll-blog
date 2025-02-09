@@ -1,29 +1,26 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Hello blog"
 date:   2025-02-09 14:54:44 +0100
 categories: jekyll update
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+Hello Blog!
 
-Jekyll requires blog post files to be named according to the following format:
+Am 9.2.2025, heute, habe ich mir vorgenommen diesen Blog zu veröffentlichen mit [Jekyll](https://jekyllrb.com/) als Framework
+um die statische Webseite zu erstellen. Das hat tatsächlich ganz gut geklappt.
 
-`YEAR-MONTH-DAY-title.MARKUP`
+Ich habe den Blog mit Absicht minimal gehalten um auf einen Stand zu kommen, den ich mittels [Github-Pages](https://pages.github.com/)
+kostenfrei deployen kann. Durch entsprechende Github Actions wird die Seite automatisiert neu deployed bei jedem neuen Commit. Sehr praktisch.
+Das Theme ändere ich potentiell noch in der Zukunft. Sollte hoffentlich problemlos möglich sein.
 
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+Die Domäne hendrik-schick.me habe ich ebenfall erst heute auf namecheap gekauft. 
+Die DNS Propagation der [A-records](https://de.wikipedia.org/wiki/A_Resource_Record), die auf die IP-Adressen von Github-Pages zeigen,
+hat dabei etwas länger als eine halbe Stunde gedauert.
 
-Jekyll also offers powerful support for code snippets:
+Ich versuche häufiger neue Blogbeiträge zu schreiben! Die Themen der Beiträge werden sich hauptsächlich um Softwareentwicklung drehen.
+Wenn mir andere interessante Dinge über den Weg laufen, können aber auch andere Beiträge zu anderen Themen erscheinen. 
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+Bei Fragen, Kritik oder Anregungen kannst Du mir gerne eine E-Mail schreiben an [hendrikjschick@gmail.com](mailto:hendrikjschick@gmail.com).
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+Beste Grüsse aus Züri  
+Hendrik 

@@ -4,15 +4,11 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Hoi    
+Ich heisse Hendrik und wohne in der Nähe von der Stadt Zürich, im Kanton Zürich, CH.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+Ich möchte hier insbesondere über Informatik-relevante Themen schreiben, die mir während der Arbeit oder in der Freizeit über den Weg laufen.
+Der Fokus liegt wohl auf Java, aber es werden sicherlich auch Blogeinträge zu anderen Themen kommen. Vielleicht auch ausserhalb der Informatik,
+wenn das Thema für die Allgemeinheit interessant sein kann.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+Schreib mir gerne eine E-Mail, wenn du mit mir in Kontakt treten möchtest.
