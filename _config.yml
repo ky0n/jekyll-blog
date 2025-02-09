@@ -35,7 +35,7 @@ plugins:
   - jekyll-feed
 lsi: false
 safe: true
-source:
+source: myblog
 incremental: false
 highlighter: rouge
 gist:
