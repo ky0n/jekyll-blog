@@ -9,11 +9,11 @@ Hello Blog!
 Am 9.2.2025, heute, habe ich mir vorgenommen diesen Blog zu veröffentlichen mit [Jekyll](https://jekyllrb.com/) als Framework
 um die statische Webseite zu erstellen. Das hat tatsächlich ganz gut geklappt.
 
-Ich habe den Blog mit Absicht minimal gehalten um auf einen Stand zu kommen, den ich mittels [Github-Pages](https://pages.github.com/)
+Ich habe den Blog mit Absicht minimal gehalten, um auf einen Stand zu kommen, den ich mittels [Github-Pages](https://pages.github.com/)
 kostenfrei deployen kann. Durch entsprechende Github Actions wird die Seite automatisiert neu deployed bei jedem neuen Commit. Sehr praktisch.
-Das Theme ändere ich potentiell noch in der Zukunft. Sollte hoffentlich problemlos möglich sein.
+Das Theme ändere ich potenziell noch in der Zukunft. Sollte hoffentlich problemlos möglich sein.
 
-Die Domäne hendrik-schick.me habe ich ebenfall erst heute auf namecheap gekauft. 
+Die Domäne hendrik-schick.me habe ich ebenfalls erst heute auf namecheap gekauft. 
 Die DNS Propagation der [A-records](https://de.wikipedia.org/wiki/A_Resource_Record), die auf die IP-Adressen von Github-Pages zeigen,
 hat dabei etwas länger als eine halbe Stunde gedauert.
 
