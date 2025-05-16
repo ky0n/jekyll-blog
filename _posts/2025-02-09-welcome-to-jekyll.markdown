@@ -3,6 +3,7 @@ layout: post
 title:  "Hello blog"
 date:   2025-02-09 14:54:44 +0100
 categories: jekyll update
+tags: [jekyll, Hendrik, Schick, Schweiz, zurich]
 ---
 Hello Blog!
 
