@@ -45,7 +45,7 @@ kramdown:
   syntax_highlighter: rouge
 gems:
   - jekyll-seo-tag
-
+permalink: /blog/:title
 
 
 # Exclude from processing.
