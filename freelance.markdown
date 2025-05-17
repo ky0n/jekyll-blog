@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Freelance Developer – Helping Teams Build Software That Works (and Lasts)"
+title: "Freelance-service Softwareengineer"
 date: 2025-05-16
 permalink: /freelance-offer
 tags: [freelancing, java, backend, work, hendrik, schick, spring-boot, angular, vuejs, cloud, aws, kubernetes, tdd, ddd]
