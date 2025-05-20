@@ -21,7 +21,7 @@ hat dabei etwas länger als eine halbe Stunde gedauert.
 Ich versuche häufiger neue Blogbeiträge zu schreiben! Die Themen der Beiträge werden sich hauptsächlich um Softwareentwicklung drehen.
 Wenn mir andere interessante Dinge über den Weg laufen, können aber auch andere Beiträge zu anderen Themen erscheinen. 
 
-Bei Fragen, Kritik oder Anregungen kannst Du mir gerne eine E-Mail schreiben an [hendrikjschick@gmail.com](mailto:hendrikjschick@gmail.com).
+Bei Fragen, Kritik oder Anregungen kannst Du mir gerne eine E-Mail schreiben an [mail@hendrik-schick.me](mailto:mail@hendrik-schick.me).
 
 Beste Grüsse aus Züri  
 Hendrik 

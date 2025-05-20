@@ -19,7 +19,7 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Hendrik Schick Blog | ky0n
-email: hendrikjschick@gmail.com
+email: mail@hendrik-schick.me
 description: >- # this means to ignore newlines until "baseurl:"
   Persönlicher Blog von mir. Ich schreibe über Softwareentwicklung
   und weitere Dingen, die mir über den Weg laufen. Schreibe mir gerne eine E-Mail, wenn du mit mir in Kontakt treten möchtest.
