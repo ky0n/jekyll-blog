@@ -47,6 +47,9 @@ gems:
   - jekyll-seo-tag
 permalink: /blog/:title
 
+include:
+  - favicon.ico
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
