@@ -1,0 +1,81 @@
+---
+layout: post
+title:  "MultiMap - die oft übersehene Stream Operation aus Java 16"
+date:   2025-04-15 17:50:42 +0100
+categories: jekyll update
+tags: [java, stream, mapMulti, jdk, java16, deutsch]
+---
+
+## mapMulti - intermediate Stream Operation und alternative zu `flatMap`
+
+In Java 16, welches am 21.03.2021 veröffentlicht wurde, enthält eine neue Stream-Operation namens 'mapMulti'.
+Diese ist eine _intermediate_ Stream-Operation, da diese selbst wieder ein `Stream<R>` zurückgibt.
+Neben der generischen mapMulti Methode für Referenztypen (i.d. nicht-primitive Typen) gibt es drei eigene Methoden für primitive Typen: mapMultiToInt,
+mapMultiToLong und mapMultiToDouble.  
+
+Zu dem mapMulti-Stream-Operationen gibt es kein Java Enhancement Proposal (JEP) und auch in den Release-Notes von Oracle zu Java 16 wurde die Stream-API-Erweiterung nicht erwähnt.
+
+<!--// vorstellen von mapMulti-->
+<!-- wie funktioniert es grundsätzlich? Implementierung, Parameter -->
+Die mapMulti-Methode hat folgende Signatur: `<R> Stream<R> mapMulti(BiConsumer<? super T, ? super Consumer<R>> mapper)`.
+Sie erwartet, typisch für Stream-Operationen, ein Funktionales-Interface als Argument. Hier einen BiConsumer, welcher wiederum zwei Argumente erwartet.
+Der erste Parameter ist der generische Typ der Elemente des Streams, der zweite ist wieder ein Consumer, diesmal der einfache, der nur ein Argument erwartet.
+
+Die Default-Implementierung von `mapMulti` in `java.util.stream.Stream` ist recht bündig und wie folgt:
+```java
+   default <R> Stream<R> mapMulti(BiConsumer<? super T, ? super Consumer<R>> mapper) {
+      Objects.requireNonNull(mapper);
+        return flatMap(e -> {
+            SpinedBuffer<R> buffer = new SpinedBuffer<>();
+            mapper.accept(e, buffer);
+            return StreamSupport.stream(buffer.spliterator(), false);
+      });
+   }
+```
+Intern wird also wieder `flatMap` aufgerufen. Diese Implementierungsvariante hat keine Vorteile zu `flatMap`. Sie ist nicht performanter und nicht speicher-effizienter.
+Diese Fallback-Implementierung gibt es nur aufgrund von Rückwärtskompatibilität, da User eigene Stream-Klassen definiert haben könnten, die nun nicht die neue Operation `mapMulti` implementiert haben.
+
+Die performante und speicher-effiziente Variante ist in der konkreten Stream-Implementierung `java.util.stream.ReferencePipeline` definiert, welche von Java 
+für alle Streams, die typisiert ist für nicht-primitive Typen, verwendet. Diese Implementierung fügt Elemente direkt der internen `downstream`-Variable hinzu.
+Die Implementierung ist deutlich effizienter als `flatMap`, da hier nicht für jedes Element ein neuer `Stream` erzeugt werden muss.
+Selbst für Elemente, die nicht mehr in der Stream-Pipeline verwendet werden sollen, muss bei `flatMap` ein leerer Stream zurückgegeben werden.
+
+## Beispiel 
+In diesem Beispiel besteht der Stream als 1-Millionen Objekten, die unter anderem eine Integer-Variable beinhalten.
+Wenn diese Variable grösser 100 ist, soll das Element behalten werden und gemapped werden auf eine interne String-Variable des Objektes. 
+Dies kann mit mapMulti wie folgt implementiert werden:
+```java 
+    stream.mapMulti((el, downstream) -> {
+         if (el.getInteger() > 100) {
+            downstream.accept(el.getString());
+         }
+      })
+```
+Mit flatMap kann es so implementiert werden:
+```java
+   stream.flatMap(el -> {
+         if (el.getInteger() > 100) {
+            return Stream.of(el.getString());   
+         }
+         return Stream.empty();
+      })    
+```
+Bei der `flatMap`-Implementierung werden zwangsläufig Streams in der Anzahl der Elemente des Streams erzeugt. 
+Dadurch leidet die Performanz bei grossen Streams und bei Operationen, bei denen nur wenig Elemente in die darauffolgende Stream-Operation übernommen werden.
+Bei `mapMulti` werden keine Zwischen-Streams erzeugt.
+
+<!-- Beispiele -->
+
+<!-- Einordnung, eigene Meinung: eigentlich sehr ähnlich zu flatMap, nur mit gewissen Vorteilen bzgl zb. Performance, da kein Stream erzeugt werden muss -->
+
+<!-- referenz auf vorherigen Blogpost zu Stream-Gatherers -->
+
+## _Fazit & meine Meinung_
+
+Die mapMulti-Operation hat nur einen eingeschränkten Use-Case und stellt keine grossen Neuerungen dar, da sie sehr ähnlich zu `flatMap` ist.
+Das Gegenteil dazu sind die Stream-Gatherers, die mit Java 24 finalisiert wurden. Stream-Gatherers habe ich in meinem [letzten Blogpost](blog/stream-gatherers) thematisiert. Schau gerne rein.
+
+Die mapMulti-Stream-Operation wird, meiner Erfahrung nach, eher selten verwendet. Dies ist auch dem speziellen Use-Case geschuldet, 
+allerdings ist das Wissen zu mapMulti und dessen Verwendung auch wenig verbreitet, obwohl es doch viele nützliche Use-Cases gibt, insbesondere als bessere alternative zu `flatMap`.
+
+Vielen Dank für deine Aufmerksamkeit. Bei Fragen oder Anregungen, schreibe mir gerne unter [mail@hendrik-schick.me](mailto:mail@hendrik-schick.me).
