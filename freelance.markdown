@@ -1,12 +1,12 @@
 ---
 layout: page
-title: "Freelance-service Softwareengineer"
+title: "Freelance-service/Contractor Softwareengineer"
 date: 2025-05-16
 permalink: /freelance-offer
 tags: [freelancing, java, backend, work, hendrik, schick, spring-boot, angular, vuejs, cloud, aws, kubernetes, tdd, ddd]
 ---
 
-Hi! I'm a freelance **Java developer** who helps teams deliver clean, reliable software – the kind that’s easy to maintain, performs well, and doesn’t fall apart under pressure.
+Hi! I'm a freelance/contract-based **Java developer** who helps teams deliver clean, reliable software – the kind that’s easy to maintain, performs well, and doesn’t fall apart under pressure.
 
 I’ve been building backends, APIs, UIs, and cloud infrastructure for several years. These days, I focus on projects where **code quality**, **scalability**, and **real-world usability** matter.  
 I can work **hybrid in german-speaking switzerland** or **remote**, and I’m open to collaborations worldwide.
@@ -95,4 +95,4 @@ Here’s what I typically do:
 
 If you're looking for a hands-on developer who cares about architecture *and* delivery, I’d love to hear from you. 
 
-Reach out to me on email 📧 **hendrikjschick@gmail.com** or on my [LinkedIn](https://www.linkedin.com/in/hendrik-schick/)
+Reach out to me on email 📧 **mail@hendrik-schick.me** or on my [LinkedIn](https://www.linkedin.com/in/hendrik-schick/)
