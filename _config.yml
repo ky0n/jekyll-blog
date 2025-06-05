@@ -51,6 +51,9 @@ permalink: /blog/:title
 include:
   - favicon.ico
 
+minima:
+  skin: dark
+  nav_pages: about.markdown
 
 # Exclude from processing.
 # The following items will not be processed, by default.
