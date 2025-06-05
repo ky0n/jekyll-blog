@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Hello blog"
+title:  "„Hello blog“ - meine neuer Blog/neue Webseite"
 date:   2025-02-09 14:54:44 +0100
 categories: jekyll update
 tags: [jekyll, Hendrik, Schick, Schweiz, zurich]
@@ -23,5 +23,5 @@ Wenn mir andere interessante Dinge über den Weg laufen, können aber auch ander
 
 Bei Fragen, Kritik oder Anregungen kannst Du mir gerne eine E-Mail schreiben an [mail@hendrik-schick.me](mailto:mail@hendrik-schick.me).
 
-Beste Grüsse aus Züri  
+Besten Dank fürs Lesen und herzliche Grüsse aus Züri!
 Hendrik 
