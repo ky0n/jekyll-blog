@@ -12,4 +12,4 @@ Kornstrasse 3
 8603 Schwerzenbach ZH  
 Schweiz
 
-Email: hendrikjschick@gmail.com oder mail@hendrik-schick.me
+Email: [hendrikjschick@gmail.com](mailto:hendrikjschick@gmail.com) oder [mail@hendrik-schick.me](mail@hendrik-schick.me)
