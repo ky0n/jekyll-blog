@@ -29,11 +29,29 @@ url: "https://hendrik-schick.me" # the base hostname & protocol for your site, e
 #twitter_username: jekyllrb
 github_username:  ky0n
 
+minima:
+  skin: dark
+  social_links:
+    - title: GitHub
+      icon: github
+      url: "https://github.com/ky0n"
+    - title: LinkedIn
+      icon: linkedin
+      url: "https://www.linkedin.com/in/hendrik-schick/"
+
+author:
+  name: Hendrik Schick
+  email: "mail@hendrik-schick.me"
+
 # Build settings
-theme: minima
+#theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-remote-theme
+remote_theme: "jekyll/minima@1e8a445"
+
+
 lsi: false
 safe: true
 source:
@@ -50,10 +68,6 @@ permalink: /blog/:title
 
 include:
   - favicon.ico
-
-minima:
-  skin: dark
-  nav_pages: about.markdown
 
 # Exclude from processing.
 # The following items will not be processed, by default.
