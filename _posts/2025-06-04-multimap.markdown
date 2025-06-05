@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "MapMulti - die oft übersehene Stream Operation aus Java 16"
-date:   2025-04-15 17:50:42 +0100
+date:   2025-06-04 17:50:42 +0100
 categories: jekyll update
 tags: [java, stream, mapMulti, jdk, java16, deutsch]
 ---
