@@ -49,6 +49,9 @@ author:
   name: Hendrik Schick
   email: "mail@hendrik-schick.me"
 
+disqus:
+  shortname: hendrik-schick
+
 # Build settings
 #theme: minima
 plugins:
