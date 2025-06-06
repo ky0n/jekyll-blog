@@ -38,6 +38,12 @@ minima:
     - title: LinkedIn
       icon: linkedin
       url: "https://www.linkedin.com/in/hendrik-schick/"
+    - title: BlueSky
+      icon: bluesky
+      url: "https://bsky.app/profile/hendrik-schick.me"
+    - title: meetup
+      icon: meetup
+      url: "https://www.meetup.com/members/382573529/"
 
 author:
   name: Hendrik Schick
