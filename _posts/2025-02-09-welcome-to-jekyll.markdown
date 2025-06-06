@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "„Hello blog“ - meine neuer Blog/neue Webseite"
+title:  "„Hello blog“ - mein neuer Blog/neue Webseite"
 date:   2025-02-09 14:54:44 +0100
 categories: jekyll update
 tags: [jekyll, Hendrik, Schick, Schweiz, zurich]
