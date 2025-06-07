@@ -44,6 +44,9 @@ minima:
     - title: meetup
       icon: meetup
       url: "https://www.meetup.com/members/382573529/"
+    - title: steam
+      icon: steam
+      url: "https://steamcommunity.com/profiles/76561198370862368/"
 
 author:
   name: Hendrik Schick
