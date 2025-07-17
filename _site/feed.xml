@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-17T23:13:57+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Hendrik Schick - Software Freelancer/Contractor</title><subtitle>Ich schreibe über Softwareentwicklung und weitere Themen, die mir über den Weg laufen.  Ich biete Softwareentwicklung und Beratung zur Softwareentwicklung als Freelancer an. Schreibe mir gerne eine E-Mail,  wenn du mit mir in Kontakt treten möchtest.</subtitle><author><name>Hendrik Schick</name><email>mail@hendrik-schick.me</email></author><entry><title type="html">MapMulti - die oft übersehene Stream Operation aus Java 16</title><link href="http://localhost:4000/blog/multimap" rel="alternate" type="text/html" title="MapMulti - die oft übersehene Stream Operation aus Java 16" /><published>2025-06-04T18:50:42+02:00</published><updated>2025-06-04T18:50:42+02:00</updated><id>http://localhost:4000/blog/multimap</id><content type="html" xml:base="http://localhost:4000/blog/multimap"><![CDATA[<h2 id="mapmulti---intermediate-stream-operation-und-alternative-zu-flatmap">mapMulti - intermediate Stream Operation und alternative zu <code class="language-plaintext highlighter-rouge">flatMap</code></h2>
+
+<p>In Java 16, welches am 21.03.2021 veröffentlicht wurde, enthält eine neue Stream-Operation namens ‘mapMulti’.
+Diese ist eine <em>intermediate</em> Stream-Operation, da diese selbst wieder ein <code class="language-plaintext highlighter-rouge">Stream&lt;R&gt;</code> zurückgibt.
+Neben der generischen mapMulti Methode für Referenztypen (i.d. nicht-primitive Typen) gibt es drei eigene Methoden für primitive Typen: mapMultiToInt,
+mapMultiToLong und mapMultiToDouble.</p>
+
+<p>Zu dem mapMulti-Stream-Operationen gibt es kein Java Enhancement Proposal (JEP) und auch in den Release-Notes von Oracle zu Java 16 wurde die Stream-API-Erweiterung nicht erwähnt.</p>
+
+<!--// vorstellen von mapMulti-->
+<!-- wie funktioniert es grundsätzlich? Implementierung, Parameter -->
+<p>Die mapMulti-Methode hat folgende Signatur: <code class="language-plaintext highlighter-rouge">&lt;R&gt; Stream&lt;R&gt; mapMulti(BiConsumer&lt;? super T, ? super Consumer&lt;R&gt;&gt; mapper)</code>.
+Sie erwartet, typisch für Stream-Operationen, ein Funktionales-Interface als Argument. Hier einen BiConsumer, welcher wiederum zwei Argumente erwartet.
+Der erste Parameter ist der generische Typ der Elemente des Streams, der zweite ist wieder ein Consumer, diesmal der einfache, der nur ein Argument erwartet.</p>
+
+<p>Die Default-Implementierung von <code class="language-plaintext highlighter-rouge">mapMulti</code> in <code class="language-plaintext highlighter-rouge">java.util.stream.Stream</code> ist recht bündig und wie folgt:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="k">default</span> <span class="o">&lt;</span><span class="no">R</span><span class="o">&gt;</span> <span class="nc">Stream</span><span class="o">&lt;</span><span class="no">R</span><span class="o">&gt;</span> <span class="nf">mapMulti</span><span class="o">(</span><span class="nc">BiConsumer</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="no">T</span><span class="o">,</span> <span class="o">?</span> <span class="kd">super</span> <span class="nc">Consumer</span><span class="o">&lt;</span><span class="no">R</span><span class="o">&gt;&gt;</span> <span class="n">mapper</span><span class="o">)</span> <span class="o">{</span>
+      <span class="nc">Objects</span><span class="o">.</span><span class="na">requireNonNull</span><span class="o">(</span><span class="n">mapper</span><span class="o">);</span>
+        <span class="k">return</span> <span class="nf">flatMap</span><span class="o">(</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="nc">SpinedBuffer</span><span class="o">&lt;</span><span class="no">R</span><span class="o">&gt;</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SpinedBuffer</span><span class="o">&lt;&gt;();</span>
+            <span class="n">mapper</span><span class="o">.</span><span class="na">accept</span><span class="o">(</span><span class="n">e</span><span class="o">,</span> <span class="n">buffer</span><span class="o">);</span>
+            <span class="k">return</span> <span class="nc">StreamSupport</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">buffer</span><span class="o">.</span><span class="na">spliterator</span><span class="o">(),</span> <span class="kc">false</span><span class="o">);</span>
+      <span class="o">});</span>
+   <span class="o">}</span>
+</code></pre></div></div>
+<p>Intern wird also wieder <code class="language-plaintext highlighter-rouge">flatMap</code> aufgerufen. Diese Implementierungsvariante hat keine Vorteile zu <code class="language-plaintext highlighter-rouge">flatMap</code>. Sie ist nicht performanter und nicht speicher-effizienter.
+Diese Fallback-Implementierung gibt es nur aufgrund von Rückwärtskompatibilität, da User eigene Stream-Klassen definiert haben könnten, die nun nicht die neue Operation <code class="language-plaintext highlighter-rouge">mapMulti</code> implementiert haben.</p>
+
+<p>Die performante und speicher-effiziente Variante ist in der konkreten Stream-Implementierung <code class="language-plaintext highlighter-rouge">java.util.stream.ReferencePipeline</code> definiert, welche von Java 
+für alle Streams, die typisiert ist für nicht-primitive Typen, verwendet. Diese Implementierung fügt Elemente direkt der internen <code class="language-plaintext highlighter-rouge">downstream</code>-Variable hinzu.
+Die Implementierung ist deutlich effizienter als <code class="language-plaintext highlighter-rouge">flatMap</code>, da hier nicht für jedes Element ein neuer <code class="language-plaintext highlighter-rouge">Stream</code> erzeugt werden muss.
+Selbst für Elemente, die nicht mehr in der Stream-Pipeline verwendet werden sollen, muss bei <code class="language-plaintext highlighter-rouge">flatMap</code> ein leerer Stream zurückgegeben werden.</p>
+
+<h2 id="beispiel">Beispiel</h2>
+<p>In diesem Beispiel besteht der Stream als 1-Millionen Objekten, die unter anderem eine Integer-Variable beinhalten.
+Wenn diese Variable grösser 100 ist, soll das Element behalten werden und gemapped werden auf eine interne String-Variable des Objektes. 
+Dies kann mit mapMulti wie folgt implementiert werden:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">stream</span><span class="o">.</span><span class="na">mapMulti</span><span class="o">((</span><span class="n">el</span><span class="o">,</span> <span class="n">downstream</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span>
+         <span class="k">if</span> <span class="o">(</span><span class="n">el</span><span class="o">.</span><span class="na">getInteger</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">downstream</span><span class="o">.</span><span class="na">accept</span><span class="o">(</span><span class="n">el</span><span class="o">.</span><span class="na">getString</span><span class="o">());</span>
+         <span class="o">}</span>
+      <span class="o">})</span>
+</code></pre></div></div>
+<p>Mit flatMap kann es so implementiert werden:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="n">stream</span><span class="o">.</span><span class="na">flatMap</span><span class="o">(</span><span class="n">el</span> <span class="o">-&gt;</span> <span class="o">{</span>
+         <span class="k">if</span> <span class="o">(</span><span class="n">el</span><span class="o">.</span><span class="na">getInteger</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="nc">Stream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">el</span><span class="o">.</span><span class="na">getString</span><span class="o">());</span>   
+         <span class="o">}</span>
+         <span class="k">return</span> <span class="nc">Stream</span><span class="o">.</span><span class="na">empty</span><span class="o">();</span>
+      <span class="o">})</span>    
+</code></pre></div></div>
+<p>Bei der <code class="language-plaintext highlighter-rouge">flatMap</code>-Implementierung werden zwangsläufig Streams in der Anzahl der Elemente des Streams erzeugt. 
+Dadurch leidet die Performanz bei grossen Streams und bei Operationen, bei denen nur wenig Elemente in die darauffolgende Stream-Operation übernommen werden.
+Bei <code class="language-plaintext highlighter-rouge">mapMulti</code> werden keine Zwischen-Streams erzeugt.</p>
+
+<!-- Beispiele -->
+
+<!-- Einordnung, eigene Meinung: eigentlich sehr ähnlich zu flatMap, nur mit gewissen Vorteilen bzgl zb. Performance, da kein Stream erzeugt werden muss -->
+
+<!-- referenz auf vorherigen Blogpost zu Stream-Gatherers -->
+
+<h2 id="fazit--meine-meinung"><em>Fazit &amp; meine Meinung</em></h2>
+
+<p>Die mapMulti-Operation hat nur einen eingeschränkten Use-Case und stellt keine grossen Neuerungen dar, da sie sehr ähnlich zu <code class="language-plaintext highlighter-rouge">flatMap</code> ist.
+Das Gegenteil dazu sind die Stream-Gatherers, die mit Java 24 finalisiert wurden. Stream-Gatherers habe ich in meinem <a href="blog/stream-gatherers">letzten Blogpost</a> thematisiert. Schau gerne rein.</p>
+
+<p>Die mapMulti-Stream-Operation wird, meiner Erfahrung nach, eher selten verwendet. Dies ist auch dem speziellen Use-Case geschuldet, 
+allerdings ist das Wissen zu mapMulti und dessen Verwendung auch wenig verbreitet, obwohl es doch viele nützliche Use-Cases gibt, insbesondere als bessere alternative zu <code class="language-plaintext highlighter-rouge">flatMap</code>.</p>
+
+<p>Vielen Dank für deine Aufmerksamkeit. Bei Fragen oder Anregungen, schreibe mir gerne unter <a href="mailto:mail@hendrik-schick.me">mail@hendrik-schick.me</a>.</p>]]></content><author><name>Hendrik Schick</name><email>mail@hendrik-schick.me</email></author><category term="jekyll" /><category term="update" /><category term="java" /><category term="stream" /><category term="mapMulti" /><category term="jdk" /><category term="java16" /><category term="deutsch" /><summary type="html"><![CDATA[mapMulti - intermediate Stream Operation und alternative zu flatMap]]></summary></entry><entry><title type="html">Einblick in Javas Stream Gatherers</title><link href="http://localhost:4000/blog/stream-gatherers" rel="alternate" type="text/html" title="Einblick in Javas Stream Gatherers" /><published>2025-04-15T18:50:42+02:00</published><updated>2025-04-15T18:50:42+02:00</updated><id>http://localhost:4000/blog/stream-gatherers</id><content type="html" xml:base="http://localhost:4000/blog/stream-gatherers"><![CDATA[<h2 id="neues-finalisiertes-feature-in-java-24">Neues <em>finalisiertes</em> Feature in Java 24</h2>
+
+<p>Bereits in Java 22 und Java 23 sind die Stream-Gatherers enthalten, allerdings noch als Preview.
+In der neuesten <strong>Java Version 24</strong>, die am 18.03.2025, während der gleichzeitig stattfindenden JavaOne 2025, 
+released wurde, sind Stream Gatherers nun als finalisiertes Feature enthalten.</p>
+
+<p>Stream Gatherers kamen finalisiert mit <a href="https://openjdk.org/jeps/485">JEP 485</a> in Java 24. 
+Es gab keine Änderungen bei dem Stream Gatherers zum Preview in Java 23.</p>
+
+<p>Stream Gatherers sind eine <strong>neue intermediate Stream-Operation</strong>. Intermediate, da die Methode <code class="language-plaintext highlighter-rouge">gather(Gatherer&lt;? super T, ?, R&gt; gatherer)</code>
+selbst wieder ein <code class="language-plaintext highlighter-rouge">Stream&lt;R&gt;</code> zurückgibt. Der Typ-Parameter <code class="language-plaintext highlighter-rouge">R</code> wird für diese Methode speziell gesetzt, daher kann der <code class="language-plaintext highlighter-rouge">Gatherer</code>
+auch den Typen der Streams verändern.</p>
+
+<h2 id="warum-braucht-es-diese-neue-stream-operation-auf-dem-stream-interface">Warum braucht es diese neue Stream-Operation auf dem Stream-Interface?</h2>
+
+<p>Das Problem aller vorher bestehenden intermediate Stream-Operationen ist, dass diese keinen eigens-definierbaren State innerhalb der Stream-Operation haben.
+Es gibt bereits ìntermediate Stream Operationen, die einen internen State haben, beispielsweise <code class="language-plaintext highlighter-rouge">distinct</code>. Hierbei werden duplikate Elemente anhand der 
+<code class="language-plaintext highlighter-rouge">Object#equals(Object)</code>-Methode herausgefiltert. Allerdings ist hier ganz genau vorgegeben welcher State gespeichert wird und <code class="language-plaintext highlighter-rouge">distinct</code> ist nur sehr limitiert einsetzbar.</p>
+
+<p>Für die zweite Art von Stream-Operationen, den terminal Operationen, gibt es bereits die generisch einsetzbare <code class="language-plaintext highlighter-rouge">collect(Collector&lt;? super T, A, R&gt; collector)</code> Methode,
+welche einen <code class="language-plaintext highlighter-rouge">Collector</code>-Objekt als Parameter erwartet. Beispielsweise mithilfe der accumulator-Funktion eines Collectors kann ein State berücksichtigt werden.
+Der Accumulator ist wie folgt auf dem Collector-Interface definiert <code class="language-plaintext highlighter-rouge">BiConsumer&lt;A, T&gt; accumulator()</code> und muss da es eine abstrakte Methode ist, zwingend implementiert werden.
+Innerhalb der Implementierung des Accumulator werden den groups (Parameter 1) jeweils ein neues Element entweder hinzugefügt oder nicht. Der accumulator wird für jedes Element aufgerufen
+und hierbei kann anhand der bereits zu den groups hinzugefügten Elementen entschieden werden, ob ein weiteres hinzugefügt wird oder nicht.</p>
+
+<h2 id="beispiel-eines-selbsterstellen-stream-gatherers">Beispiel eines selbsterstellen Stream Gatherers</h2>
+
+<p>Stream Gatherers können granular selbst erstellt werden mittels Implementierung des neuen <code class="language-plaintext highlighter-rouge">java.util.stream.Gatherer</code>-Interfaces.
+Interessanterweise ist dieses Interface ein funktionales Interface, obwohl die <code class="language-plaintext highlighter-rouge">@FunctionalInterface</code> Annotation nicht gesetzt wurde.</p>
+
+<p>Ein Gatherer besteht im Kern aus 4 Bestandteilen. Diese sind ein Initializer, ein Integrator, ein Combiner und ein Finisher.</p>
+<ul>
+  <li>Initializer: <code class="language-plaintext highlighter-rouge">Supplier&lt;A&gt; initializer()</code>, welcher den initialen Zustand erzeugen kann. Im Default wird kein initialer Zustand erzeugt und <code class="language-plaintext highlighter-rouge">null</code> zurückgegeben.</li>
+  <li>Integrator: <code class="language-plaintext highlighter-rouge">Integrator&lt;A, T, R&gt; integrator()</code>
+    <ul>
+      <li>einzig abstrakte Methode auf dem <code class="language-plaintext highlighter-rouge">Gatherer</code>-Interface</li>
+      <li><code class="language-plaintext highlighter-rouge">Integrator</code> selbst ist auch ein funktionales Interface</li>
+      <li><code class="language-plaintext highlighter-rouge">boolean integrate(A state, T element, Downstream&lt;? super R&gt; downstream)</code> muss implementiert werden</li>
+    </ul>
+  </li>
+  <li>Combiner: <code class="language-plaintext highlighter-rouge">BinaryOperator&lt;A&gt; combiner()</code>
+    <ul>
+      <li>nimmt zwei zwischenzeitliche Streams und fasst sie in einen zusammen</li>
+      <li>muss implementiert sein für parallel ausgeführte gatherer-Stream operationen</li>
+      <li>im default wird eine <code class="language-plaintext highlighter-rouge">UnsupportedOperation</code>-Exception geworfen, daher kann hier der Gatherer nur sequentiell durchlaufen werden</li>
+    </ul>
+  </li>
+  <li>Finisher: <code class="language-plaintext highlighter-rouge">BiConsumer&lt;A, Downstream&lt;? super R&gt;&gt; finisher()</code>
+    <ul>
+      <li>finale Aktion am Ende der Stream-operation.</li>
+      <li>im default ein no-op</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Auf dem Gatherer-Interface gibt es mehrere ofSequential- (zwingend sequentiell) und of (parallelisierbar)-Factory Methoden, um Gatherer-Objekte zu erstellen.<br />
+Sehr simpel ist beispielsweise ofSequential auf dem Gatherer-Interface</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">,</span> <span class="no">R</span><span class="o">&gt;</span> <span class="nc">Gatherer</span><span class="o">&lt;</span><span class="no">T</span><span class="o">,</span> <span class="nc">Void</span><span class="o">,</span> <span class="no">R</span><span class="o">&gt;</span> <span class="nf">ofSequential</span><span class="o">(</span>
+          <span class="nc">Integrator</span><span class="o">&lt;</span><span class="nc">Void</span><span class="o">,</span> <span class="no">T</span><span class="o">,</span> <span class="no">R</span><span class="o">&gt;</span> <span class="n">integrator</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="nf">of</span><span class="o">(</span>
+              <span class="n">defaultInitializer</span><span class="o">(),</span>
+              <span class="n">integrator</span><span class="o">,</span>
+              <span class="n">defaultCombiner</span><span class="o">(),</span>
+              <span class="n">defaultFinisher</span><span class="o">()</span>
+      <span class="o">);</span>
+  <span class="o">}</span>
+</code></pre></div></div>
+<p>Es wird ein Gatherer zurückgegeben, der sequentiell und stateless ist und allein durch den <code class="language-plaintext highlighter-rouge">integrator</code> an die jeweiligen Bedürfnisse angepasst wird.</p>
+
+<h2 id="vordefinierte-stream-gatherers-im-jdk">Vordefinierte Stream Gatherers im JDK</h2>
+
+<p>Die <code class="language-plaintext highlighter-rouge">final</code> und nicht-initiierbare Klasse <code class="language-plaintext highlighter-rouge">java.util.Stream.Gatherers</code> beinhaltet fünf vordefinierte Gatherers.<br />
+Diese sind die folgenden:</p>
+<ul>
+  <li><strong>fold</strong>
+    <ul>
+      <li>führt eine geordnete, reduction-like Transformation durch.</li>
+      <li>stateful many-to-one gatherer</li>
+      <li>erwartet 2 Argumente: <code class="language-plaintext highlighter-rouge">Supplier</code> für den initialen Wert, <code class="language-plaintext highlighter-rouge">BiFunction</code> als folding operation,
+        <ul>
+          <li>wobei bei der <code class="language-plaintext highlighter-rouge">BiFunction</code> der erste Parameter das derzeitig bestehende Endresultat ist und</li>
+          <li>der zweite Parameter das jeweilige Element darstellt.</li>
+        </ul>
+      </li>
+      <li>nützlich um ein Endresultat zu ermitteln basierend auf mehreren Elementen des Streams</li>
+    </ul>
+  </li>
+  <li><strong>scan</strong>
+    <ul>
+      <li>führt eine geordnete Transformation durch, wobei für jedes Element ein neues Element in den resultierenden Stream kommt</li>
+      <li>wie bei <code class="language-plaintext highlighter-rouge">fold</code> erwartet <code class="language-plaintext highlighter-rouge">scan</code> 2 Argumente: <code class="language-plaintext highlighter-rouge">Supplier</code> für den initialen Wert und eine <code class="language-plaintext highlighter-rouge">BiFunction</code>
+        <ul>
+          <li>das erste Argument der <code class="language-plaintext highlighter-rouge">BiFunction</code> ist der derzeitige <em>state</em>, der in jeder Iteration verändert werden kann</li>
+          <li>das zweite Argument ist ein Element des Streams, d.h. die BiFunction wird für jedes Element des Streams aufgerufen.</li>
+        </ul>
+      </li>
+      <li>anders als bei fold wird nicht ein Stream mit einem singulären Element zurückgegeben, sondern die Anzahl der Elemente des Streams ändern sich <em>nicht</em></li>
+      <li>stateful one-to-one gatherer</li>
+    </ul>
+  </li>
+  <li><strong>mapConcurrent</strong>
+    <ul>
+      <li>führt mitgegebene <code class="language-plaintext highlighter-rouge">Function</code> (Parameter 2) nebenläufig aus mithilfe von virtual threads</li>
+      <li>Anzahl der virtual threads wird als <code class="language-plaintext highlighter-rouge">int</code> mit Parameter 1 festgelegt</li>
+      <li>one-to-one gatherer, <strong>ohne state innerhalb des Gatherers</strong></li>
+    </ul>
+  </li>
+  <li><strong>windowFixed</strong>
+    <ul>
+      <li>es gibt 2 window methoden in der Gatherer Klasse</li>
+      <li>die erste ist <code class="language-plaintext highlighter-rouge">windowFixed</code></li>
+      <li>diese erwartet nur 1 Parameter. Ein int, der die window-size angibt.</li>
+      <li>die Elemente des Streams werden dann in Listen aufgeteilt entsprechend der window-size</li>
+      <li>Jedes Element ist auch in den Sub-Listen nur insgesamt ein mal vorhanden</li>
+      <li>Beispielsweise:
+        <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">windows</span> <span class="o">=</span>
+       <span class="nc">Stream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">7</span><span class="o">,</span><span class="mi">8</span><span class="o">).</span><span class="na">gather</span><span class="o">(</span><span class="nc">Gatherers</span><span class="o">.</span><span class="na">windowFixed</span><span class="o">(</span><span class="mi">3</span><span class="o">)).</span><span class="na">toList</span><span class="o">();</span>
+<span class="c1">// will contain: [[1, 2, 3], [4, 5, 6], [7, 8]]</span>
+</code></pre></div>        </div>
+      </li>
+      <li>many-to-many gatherer, stateful um derzeitige Anzahl Elemente je Liste <em>mitzuzählen</em></li>
+    </ul>
+  </li>
+  <li><strong>windowSliding</strong>
+    <ul>
+      <li>die zweite window methode in der Gatherer Klasse</li>
+      <li>auch hier wird nur 1 Parameter erwartet, welcher wieder die windowSize angibt</li>
+      <li>hier werden die <em>windows</em> jeweils auch mit den Elementen des vorherigen <em>windows</em> (Liste) erstellt, nur das <em>älteste</em> Element fällt jeweils raus</li>
+      <li>Beispielsweise:
+        <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">windows6</span> <span class="o">=</span>
+       <span class="nc">Stream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">7</span><span class="o">,</span><span class="mi">8</span><span class="o">).</span><span class="na">gather</span><span class="o">(</span><span class="nc">Gatherers</span><span class="o">.</span><span class="na">windowSliding</span><span class="o">(</span><span class="mi">6</span><span class="o">)).</span><span class="na">toList</span><span class="o">();</span>
+ <span class="c1">// will contain: [[1, 2, 3, 4, 5, 6], [2, 3, 4, 5, 6, 7], [3, 4, 5, 6, 7, 8]]</span>
+</code></pre></div>        </div>
+      </li>
+      <li>many-to-many gatherer, stateful um derzeitige Anzahl Elemente je Liste <em>mitzuzählen</em></li>
+      <li>beide window-Gatherer erstellen jeweils unmodifiable Listen</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="fazit--meine-meinung"><em>Fazit &amp; Meine Meinung</em></h2>
+
+<p>Es ist die erste neue Stream-Operation seit der Einführung von der intermediate operation <code class="language-plaintext highlighter-rouge">mapMulti</code> und der terminal operation <code class="language-plaintext highlighter-rouge">toList</code> in Java 16.
+Daher ist es eine durchaus bedeutende Änderung, insbesondere da das <strong>Stream-Interface</strong> eines der meistgenutzten modernen Java-Features ist.
+Neue Features werden zu Java eher spärlich und nach intensiver Abwägung hinzugefügt. Mittels des generischen Stream-Gatherers können nun Entwickler selbst diverse 
+intermediate Stream-Operationen kreieren.</p>
+
+<p>Auch ich hatte schon mehrmals die Erfahrung gemacht im Job, dass ich eine Stream-Pipeline ohne einen vorhandenen State innerhalb des Streams nicht schreiben konnte.
+Vor Java 24 gab es hier mehrere Möglichkeiten. Es konnte der Stream ganz terminiert werden, um die zustandsbehaftete Operation dann ausserhalb der Stream-API durchzuführen.
+Andere Optionen sind die schon existierende zustandsbehaftete Stream-Operation <code class="language-plaintext highlighter-rouge">distinct</code>, wobei dazu teilweise die <code class="language-plaintext highlighter-rouge">equals</code> und <code class="language-plaintext highlighter-rouge">hashCode</code> Methoden des jeweiligen Elemententypes
+entsprechend den Anforderungen unschön angepasst werden muss. Eine weitere Option, die ich auch bereits verwendet hatte, ist einen Collector dafür zu nutzen.
+Mittels <code class="language-plaintext highlighter-rouge">Collector.of()</code> kann anhand des <code class="language-plaintext highlighter-rouge">BiConsumer</code>-Accumulators entschieden werden ob Elemente des Streams in die neu erstellte Kollektion kommen anhand der schon vorhandenen Elemente im neuen Stream.
+Hier kann also anhand des States (bereits hinzugefügte Elemente) eine Entscheidung getroffen werden.</p>
+
+<p>Diese Optionen sind aber alle keine sauberen Lösungen und sind eher Hacks. Es fehlte eine generische intermediate Stream-Operation, die auch zustandsbehaftet sein kann.
+Mit den neuen Stream-Gatherers ist dies möglich. So kann noch mehr imperativer Code im funktionalen, deklarativen Stil innerhalb Streams geschrieben werden.</p>
+
+<p><em>Hinweis: Dieser Blogbeitrag wurde ohne Nutzung von KI geschrieben.</em></p>]]></content><author><name>Hendrik Schick</name><email>mail@hendrik-schick.me</email></author><category term="jekyll" /><category term="update" /><category term="java" /><category term="stream" /><category term="gatherer" /><category term="jdk" /><category term="java24" /><summary type="html"><![CDATA[Neues finalisiertes Feature in Java 24]]></summary></entry><entry><title type="html">„Hello blog“ - mein neuer Blog/neue Webseite</title><link href="http://localhost:4000/blog/welcome-to-jekyll" rel="alternate" type="text/html" title="„Hello blog“ - mein neuer Blog/neue Webseite" /><published>2025-02-09T14:54:44+01:00</published><updated>2025-02-09T14:54:44+01:00</updated><id>http://localhost:4000/blog/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/blog/welcome-to-jekyll"><![CDATA[<p>Hello Blog!</p>
+
+<p>Am 9.2.2025, heute, habe ich mir vorgenommen diesen Blog zu veröffentlichen mit <a href="https://jekyllrb.com/">Jekyll</a> als Framework
+um die statische Webseite zu erstellen. Das hat tatsächlich ganz gut geklappt.</p>
+
+<p>Ich habe den Blog mit Absicht minimal gehalten, um auf einen Stand zu kommen, den ich mittels <a href="https://pages.github.com/">Github-Pages</a>
+kostenfrei deployen kann. Durch entsprechende Github Actions wird die Seite automatisiert neu deployed bei jedem neuen Commit. Sehr praktisch.
+Das Theme ändere ich potenziell noch in der Zukunft. Sollte hoffentlich problemlos möglich sein.</p>
+
+<p>Die Domäne hendrik-schick.me habe ich ebenfalls erst heute auf namecheap gekauft. 
+Die DNS Propagation der <a href="https://de.wikipedia.org/wiki/A_Resource_Record">A-records</a>, die auf die IP-Adressen von Github-Pages zeigen,
+hat dabei etwas länger als eine halbe Stunde gedauert.</p>
+
+<p>Ich versuche häufiger neue Blogbeiträge zu schreiben! Die Themen der Beiträge werden sich hauptsächlich um Softwareentwicklung drehen.
+Wenn mir andere interessante Dinge über den Weg laufen, können aber auch andere Beiträge zu anderen Themen erscheinen.</p>
+
+<p>Bei Fragen, Kritik oder Anregungen kannst Du mir gerne eine E-Mail schreiben an <a href="mailto:mail@hendrik-schick.me">mail@hendrik-schick.me</a>.</p>
+
+<p>Besten Dank fürs Lesen und herzliche Grüsse aus Züri!
+Hendrik</p>]]></content><author><name>Hendrik Schick</name><email>mail@hendrik-schick.me</email></author><category term="jekyll" /><category term="update" /><category term="jekyll" /><category term="Hendrik" /><category term="Schick" /><category term="Schweiz" /><category term="zurich" /><summary type="html"><![CDATA[Hello Blog!]]></summary></entry></feed>
