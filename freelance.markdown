@@ -6,7 +6,7 @@ permalink: /offer
 tags: [freelancing, java, backend, work, hendrik, schick, spring-boot, angular, vuejs, cloud, aws, kubernetes, tdd, ddd]
 ---
 
-Hi! I'm a **Java developer** who helps teams deliver clean, reliable software – the kind that’s easy to maintain, performs well, and doesn’t fall apart under pressure.
+Hi! I'm a **Software developer** who helps teams deliver clean, reliable software – the kind that’s easy to maintain, performs well, and doesn’t fall apart under pressure.
 
 I’ve been building backends, APIs, UIs, and cloud infrastructure for several years. These days, I focus on projects where **code quality**, **scalability**, and **real-world usability** matter.  
 I can work **hybrid in german-speaking switzerland** or **remote**, and I’m open to collaborations worldwide.
@@ -30,7 +30,7 @@ What I bring to the table:
 
 ## 🌱 Spring Boot & Ecosystem
 
-Most of my backend work is based on **Spring Boot** or **JavaEE/Jakarta** – whether it’s building APIs, handling business logic, or integrating external systems.
+Most of my backend work is based on **Spring**, **Spring Boot** or **JavaEE/Jakarta** – whether it’s building APIs, handling business logic, or integrating external systems.
 
 What I usually work with:
 
@@ -41,12 +41,11 @@ What I usually work with:
 
 ---
 
-## 🌐 Frontend: Angular & Vue.js
+## 🌐 Frontend: Angular
 
-While backend is my main focus, I’ve also built and maintained plenty of **Angular** and **Vue.js** frontends – mostly as part of full-stack projects.
+While backend is my main focus, I’ve also built and maintained plenty of **Angular** frontends – mostly as part of full-stack projects.
 
 - Angular (strong TypeScript, RxJS, forms, routing)
-- Vue 2 & 3 (clean, component-driven architecture)
 - REST integration, state management, and UI frameworks like TailwindCSS
 
 ---
