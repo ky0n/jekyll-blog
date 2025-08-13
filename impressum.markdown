@@ -6,7 +6,7 @@ permalink: /impressum/
 
 **Angaben gemäss Art. 3 Abs. 1 lit. s UWG**
 
-Hendrik Schick
+Hendrik Heinrich Schick
 
 Kornstrasse 3  
 8603 Schwerzenbach ZH, Kanton Zürich  
