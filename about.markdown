@@ -5,6 +5,8 @@ permalink: /about/
 ---
 
 ## Kurz zu mir ...
+<img src="/assets/images/profil.jpg" alt="Mein Bild" width="500">  
+  
 Hoi  
 Mein Name ist Hendrik. Ich wohne im schönen Schwerzenbach, idyllisch gelegen zwischen Zürich-Stadt und Uster am Greifensee, im Kanton Zürich, in der deutschsprachigen Schweiz.  
 Aufgewachsen bin ich bei Leipzig (Deutschland). In Leipzig habe ich Informatik im Bachelor studiert, danach an der TU Darmstadt (südlich von Frankfurt) den Master in Informatik. Als Werkstudent war ich in verschiedenen Arbeitsverhältnissen als Backend-Developer, Frontend-Developer und als Softwaretester tätig.  
