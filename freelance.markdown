@@ -1,9 +1,10 @@
 ---
 layout: page
-title: "Softwaredeveloper Consultant"
+title: "Software Consultant"
 date: 2025-05-16
 permalink: /offer
 tags: [freelancing, java, backend, work, hendrik, schick, spring-boot, angular, vuejs, cloud, aws, kubernetes, tdd, ddd]
+published: false
 ---
 
 Hi! I'm a **Software developer** who helps teams deliver clean, reliable software – the kind that’s easy to maintain, performs well, and doesn’t fall apart under pressure.
