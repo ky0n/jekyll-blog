@@ -8,8 +8,8 @@ tags: [java, stream, mapMulti, jdk, java16, deutsch]
 
 ## mapMulti - intermediate Stream Operation und alternative zu `flatMap`
 
-In Java 16, welches am 21.03.2021 veröffentlicht wurde, enthält eine neue Stream-Operation namens 'mapMulti'.
-Diese ist eine _intermediate_ Stream-Operation, da diese selbst wieder ein `Stream<R>` zurückgibt.
+Java 16, welches im März 2021 veröffentlicht wurde, enthält eine neue Stream-Operation namens 'mapMulti'.
+Diese ist eine _intermediate_ Stream-Operation, da sie selbst wieder ein `Stream<R>` zurückgibt.
 Neben der generischen mapMulti Methode für Referenztypen (i.d. nicht-primitive Typen) gibt es drei eigene Methoden für primitive Typen: mapMultiToInt,
 mapMultiToLong und mapMultiToDouble.  
 
