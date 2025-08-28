@@ -18,9 +18,11 @@ In der Programmiersprache Java gibt es Klassen, die besonders sind. Eine definie
     - z.B. die `Thread`-Klasse startet einen eigenen Thread während der Laufzeit, der vom Betriebssystem gemanaged wird, solange es ein Platform-Thread ist (kein virtual-thread)
 
 ## Zunächst zu Kategorie 1: Klassen mit eigener Bedeutung in der Syntax von Java
+Interfaces, die in speziellen Syntax-Konstrukten in Java verwendbar sind, ermöglichen eine "Growability" der Sprache. Bibliotheken-Maintainer und auch im eigenen Projekt können Implementierungen der Interfaces schreiben, die dann in den speziellen Java-Statements verwendet werden. Der Chief-Java-Architect Brian Götz hat darüber zufällig vor kurzem ein Talk gehalten beim JVM Language Summit ([Youtube-Link](https://www.youtube.com/watch?v=Gz7Or9C0TpM)). 
+
 ### Iterable-Interface für for-each-Schleife
-Hierunter fällt beispielsweise das Iterable-Interface. Klasse, die das Iterable-Interface implementieren können nämlich in einer for-each-Schleife verwendet werden. 
-Standardmäßig fällt hierunter alle Collection-Klassen im JDK, da das `Collection`-Interface `Iterable` extended. Also die Implementierungen von `List`, `Set`, aber nicht `Map`. Eine Map kann nach Umwandlung in ein `Set<Map.Entry<K, V>>` umgewandelt werden durch Aufruf von `Map::entrySet` und somit in einer for-each-Schleife verwendet werden.  
+Klasse, die das Iterable-Interface implementieren können in einer for-each-Schleife verwendet werden. 
+Standardmäßig fällt hierunter alle Collection-Klassen im JDK, da das `Collection`-Interface `Iterable` extended. Also die Implementierungen von `List`, `Set`, aber nicht `Map`. Eine Map kann nach Umwandlung in ein `Set<Map.Entry<K, V>>` umgewandelt werden durch Aufruf von `Map::entrySet` und somit in einer for-each-Schleife verwendet werden. Als die for-each-Schleife mit Java 7 eingeführt wurde, wurde 
 ```java
 // Beispiel Iteration eine Map mittels for-each-Schleife
 var beispielMap = Map.of(1, "Wert 1", 2, "Wert 2", 3, "Wert 3");
