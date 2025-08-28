@@ -14,6 +14,8 @@ source "https://rubygems.org"
 gem "github-pages", "~> 232", group: :jekyll_plugins
 # If you have any plugins, put them here!
 group :jekyll_plugins do
+  gem "jekyll-sitemap"
+  gem "jekyll-seo-tag"
   gem "jekyll-feed", "~> 0.12"
   gem 'jekyll-remote-theme'
 end
