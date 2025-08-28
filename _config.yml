@@ -30,7 +30,7 @@ url: "https://hendrik-schick.me" # the base hostname & protocol for your site, e
 github_username:  ky0n
 
 minima:
-  skin: dark
+  skin: classic
   social_links:
     - title: GitHub
       icon: github
