@@ -63,6 +63,7 @@ disqus:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
   - jekyll-remote-theme
 remote_theme: "jekyll/minima@1e8a445"
 
