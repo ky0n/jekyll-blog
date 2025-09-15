@@ -5,18 +5,18 @@ date:   2025-08-14 09:23:65 +0200
 categories: jekyll update
 tags: [java, stream, magics, jdk, java24, try-with, deutsch]
 ---
-# "Magische" Klassen und Interaces in Java
+# "Magische" Klassen und Interfaces in Java
 
 In der Programmiersprache Java gibt es Klassen, die besonders sind. Eine definierte Anzahl von Klassen im JDK sind nicht nur einfache Java-Klassen, die auch jeder User anlegen kann, sondern jene Klassen haben darüber hinaus eine spezielle Interaktion mit dem JDK. Diese Klassen können entweder in bestimmten Statements von Java verwendet werden und sind dabei fest in der Syntax verbunden oder haben eine feste Bedeutung, die mit Komponenten des Betriebssystems zusammenhängt oder es werden bereits beim Start des Java-Programms, zur Laufzeit, Variablen initialisiert. Ich unterteile die _magischen_ Klassen in 3 Kategorien. Es gibt Klassen die:
 1. Eine eigene Rolle in der Syntax von Java haben
     - d. h. sie können mit speziellen Syntax-Features on Java verwendet werden, wie z.b. der for-each-Schleife oder dem try-with-resources-Statement
 2. Während der Laufzeit statisch-initialisierte Variablen haben
-    - Hier ist inbsesondere die `System`-Klasse zu erwähnen,
+    - Hier ist insbesondere die `System`-Klasse zu erwähnen,
 3. Symbolisch für _mehr_ stehen, also z.b. für eine Funktion des Betriebssystems.
     - z.B. die `Thread`-Klasse startet einen eigenen Thread während der Laufzeit, der vom Betriebssystem gemanaged wird, solange es ein Platform-Thread ist (kein virtual-thread)
 
 ## Kategorie 1: Klassen mit eigener Bedeutung in der Syntax von Java
-Interfaces, die in speziellen Syntax-Konstrukten in Java verwendbar sind, ermöglichen eine "Growability" der Sprache. Bibliotheken-Maintainer und auch im eigenen Projekt können Implementierungen der Interfaces schreiben, die dann in den speziellen Java-Statements verwendet werden. Der Chief-Java-Architect Brian Götz hat darüber zufällig vor kurzem ein Talk gehalten beim JVM Language Summit 2025 ([Youtube-Link](https://www.youtube.com/watch?v=Gz7Or9C0TpM)). 
+Interfaces, die in speziellen Syntax-Konstrukten in Java verwendbar sind, ermöglichen eine "Growability" der Sprache. Bibliotheken-Maintainer und auch im eigenen Projekt können Implementierungen der Interfaces schreiben, die dann in den speziellen Java-Statements verwendet werden. Der Chief-Java-Architect Brian Götz hat darüber zufällig vor kurzem ein Talk gehalten beim JVM Language Summit 2025 ([Youtube-Link](https://www.youtube.com/watch?v=Gz7Or9C0TpM){:target="_blank"}). 
 
 ### Iterable-Interface für for-each-Schleife
 Klassen, die das Iterable-Interface implementieren können in einer for-each-Schleife verwendet werden. Auch User können das Iterable-Interface implementieren und dann mit selbstgeschriebenen Klassen dieses Syntax-Feature verwenden.
@@ -58,7 +58,7 @@ try (AutoCloseable _ = () -> System.out.println("Ende des Blocks")) {
     System.out.println("Innerhalb des Blocks");
 }
 ```
-Diese weniger sinnvolle anonyme Implementierung des AutoCloseable-Intefaces ermöglicht es schon das try-with-resources-Statement zu verwenden. Zu erst wird "Innerhalb des Blocks" in die Konsole geschrieben, danach "Ende des Blocks".
+Diese weniger sinnvolle anonyme Implementierung des AutoCloseable-Intefaces ermöglicht es schon das try-with-resources-Statement zu verwenden. Zuerst wird "Innerhalb des Blocks" in die Konsole geschrieben, danach "Ende des Blocks".
 
 
 <!-- 
@@ -77,7 +77,7 @@ Diese weniger sinnvolle anonyme Implementierung des AutoCloseable-Intefaces erm�
 Es gibt in Java Exceptions, die zwingend behandelt werden müssen. D.h. dass diese Exceptions entweder gefangen werden müssen oder per throws-clause in der Methoden-Kopfzeile weitergeworfen werden müssen.
 
 Demgegenüber gibt es _Unchecked Exceptions_, welche diese Bedingung nicht haben und nicht behandelt werden müssen.
-Dazu gehören Runtime-Exceptions und Exceptions, die von `RuntimeException` erben. Zudem gehören dazu `Error`-Klassen und Exceptions, die von `Error` erben, beispielsweise `OutOfMemoryError` oder `StackOverflowError`. 
+Dazu gehören Runtime-Exceptions und Exceptions, die von `RuntimeException` erben. Zudem gehören dazu `Error`-Klassen und Exceptions, die von `Error` erben, beispielsweise `OutOfMemoryError` oder `StackOverflowError`. Diese Fehler sind meist sehr kritisch und können nicht mehr behandelt werden.
 
 Die Magie liegt hierbei daran, dass Abhängig vom Supertyp einer Exceptions eine Behandlung dieser zwingend notwendig wird und ohne diese die Kompilierung fehlschlägt. Ausserdem ist die Throwable-Klasse, die Klasse, von der alle Exception erben, auch _magisch_, da nur sie das Werfen mittels `throws` überhaupt ermöglicht.
 
@@ -91,16 +91,23 @@ class A extends Object {}
 Aus diesem Grund kann auch jede Klasse in Java public/protected Methoden von `Object`, wie `hashcode`, `equals`, `clone` implementieren.
 
 
-## Kategorie 2: Klassen, deren Variablen (teilweise) beim Programmstart initialisiert werden
-Zu dieser Kategorie zählen Klassen, die statische Variablen haben, die beim Start des Programmes initialisiert werden. Dazu zählt beispielsweise die Klasse 
-`System`. Durch `System.in` und `System.out` wird der Zugang zum Input/Output im Terminal gewährt. 
+## Kategorie 2: Klassen, deren Variablen (teilweise) beim Programmstart initialisiert werden und Objekte, die von der JVM erzeugt werden
+Zu dieser Kategorie zählen Klassen, die statische Variablen haben, die beim Start des Programmes initialisiert werden, bzw. beim Laden des Klasse durch die JVM. Dazu zählt beispielsweise die Klasse 
+`System`. Durch `System.in`,`System.out` und `System.err` wird der Zugang zum Input/Output im Terminal gewährt. 
 
+Zu jeder geladene Java-Klasse wird ein `Class`-Objekt mit Metainformationen zu dieser Klasse erzeugt. Dies ist aufrufbar über `"Klasse".class`. Hier ein Beispiel: 
+`Class<String> s = String.class;` Darüber können während der Laufzeit des Programmes beispielsweise Annotationen einer Klasse ausgelesen werden.
+
+Die Bootstrap-Classloader, Plattform-Classloader und System-Classloader sind auch magische Klassen. Sie implementieren jeweils die abstrakte Klasse java.lang.ClassLoader.
+Der Plattform-Classloader lädt die die Standard-Java-Library. Er hat privilegierte Rechte um alle _Plattform-Klassen_ lesen zu können.
 
 ## Kategorie 3: Klassen, die fest mit Betriebssystem-Funktionalität verknüpft sind und besondere Privilegien in der JRE haben
 
-Zu dieser Kategorie zählt zu erst die `Thread`-Klasse. Mit ihr werden, zumindest mit nicht-virtuellen Thread, d.h. Plattform-Threads, auch jeweils ein nativer Thread des Betriebsystems verbunden. Die JVM sorgt lediglich für die Verwaltung des Threads auf Java-Ebene und die Java `Thread`-Klasse ist ein Wrapper um den nativen Betriebssystem-Thread. Auch User könnten theoretisch über native Methode mit JNI oder Panama Threads erstellen, aber auch dieser Code hat kein Zugriff auf die nativen VM-Hooks, welche nur im JDK existieren. 
+Zu dieser Kategorie zählt zuerst die `Thread`-Klasse. Mit ihr werden, zumindest mit nicht-virtuellen Thread, d.h. Plattform-Threads, auch jeweils ein nativer Thread des Betriebsystems verbunden. Die JVM sorgt lediglich für die Verwaltung des Threads auf Java-Ebene und die Java `Thread`-Klasse ist ein Wrapper um den nativen Betriebssystem-Thread. Auch User könnten theoretisch über native Methode mit JNI oder Panama Threads erstellen, aber auch dieser Code hat kein Zugriff auf die nativen VM-Hooks, welche nur im JDK existieren. 
 
 Über die statisch native Methode `Thread.currentThread()` wird der Thread ermittelt, der diese Methode aufruft und als `Thread`-Objekt zurückgegeben. Diese Methode ist tief verankert im JVM und so nicht nachzubauen in einer durch User erstellt Klasse.
+
+In diese Kategorie gehört auch die Runtime Klasse, wobei diese ebenfalls zu Kategorie 2 gehört. Die `java.lang.Runtime`-Klasse gibt über die statische Methode `Runtime.getRuntime()` ein `Runtime`-Objekt zurück, dass mit dem laufenden Java-Programm zusammenhängt. Hierdurch kann beispielsweise mittels `gc()` der Garbage-Collector der JVM angestossen werden. Allerdings ist diese Methode keine Garantie, dass bestimmte Objekte durch den Garbage-Collector recycled wurden. Weitere Methoden in dieser Klasse sind `maxMemory` sowie weitere Methoden im Zusammenhang mit dem Speicher der JVM. Diese Methoden sind `native` und daher direkt in C++ oder C geschrieben in der JVM.
 
 _diesmal ein Blogeintrag auf deutsch._  
 _schreibe gerne ein Kommentar unten im Kommentarbereich oder hinterlasse eine Reaktion_
