@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "Magie in Java - Klassen mit besonderer Funktionalität"
-date:   2025-08-14 09:23:65 +0200
+date:   2025-09-15 18:06:20 +0200
 categories: jekyll update
-tags: [java, stream, magics, jdk, java24, try-with, deutsch]
+tags: [java, stream, magics, jdk, java24, try-with, deutsch, iterable, java 25, classloader]
 ---
 # "Magische" Klassen und Interfaces in Java
 

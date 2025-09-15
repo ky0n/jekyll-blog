@@ -5,3 +5,4 @@ _site
 vendor
 .idea/*
 Gemfile.lock
+**/.DS_STORE
