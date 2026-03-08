@@ -1,0 +1,202 @@
+---
+---
+
+/* --- Modern & Clean Base Styles --- */
+
+:root {
+  --primary-color: #1a1a1a;
+  --secondary-color: #4a4a4a;
+  --accent-color: #0070f3;
+  --bg-color: #ffffff;
+  --section-bg: #f8f9fa;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-muted: #666666;
+  --border-color: #eaeaea;
+  --border-radius: 12px;
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- Header & Navigation --- */
+
+.site-header {
+  border-bottom: 1px solid var(--border-color);
+  min-height: 56px;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+}
+
+.site-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--primary-color) !important;
+  text-decoration: none;
+  line-height: 56px;
+}
+
+.site-nav {
+  float: right;
+  line-height: 56px;
+}
+
+.page-link {
+  color: var(--secondary-color) !important;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.page-link:hover {
+  color: var(--accent-color) !important;
+}
+
+/* --- Content Typography --- */
+
+h1, h2, h3, h4 {
+  color: var(--primary-color);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+h2 { font-size: 1.8rem; margin-top: 2.5rem; margin-bottom: 1.25rem; }
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* --- Certificate List (The main visual feature) --- */
+
+.certificate-list {
+  margin-top: 2rem;
+}
+
+.certificate-list h2 {
+  border-bottom: 2px solid var(--accent-color);
+  display: inline-block;
+  padding-bottom: 4px;
+  margin-bottom: 2rem;
+}
+
+.certificate-group {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .certificate-group {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+}
+
+.certificate-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.certificate-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-color);
+}
+
+.certificate-item h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.certificate-item .meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.certificate-item .description {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  margin-top: auto;
+}
+
+.low-quality {
+  background: #fafafa;
+  border-style: dashed;
+}
+
+.low-quality h3 {
+  color: var(--secondary-color);
+}
+
+/* --- Footer --- */
+
+.site-footer {
+  padding: 40px 0;
+  border-top: 1px solid var(--border-color);
+  margin-top: 60px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.footer-col-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* --- Post List --- */
+
+.post-list {
+  list-style: none;
+  padding: 0;
+}
+
+.post-list li {
+  margin-bottom: 2rem;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.post-link {
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: block;
+}
