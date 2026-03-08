@@ -1,10 +1,37 @@
+{% assign all_skills = "" | split: "," %}
+{% for cert in site.data.certificates %}
+  {% for skill in cert.skills %}
+    {% unless all_skills contains skill %}
+      {% assign all_skills = all_skills | push: skill %}
+    {% endunless %}
+  {% endfor %}
+{% endfor %}
+{% assign all_skills = all_skills | sort %}
+
+<div class="certificate-filter-wrapper">
+  <div class="filter-main-controls">
+    <button class="filter-btn active" data-filter="all">All Certificates</button>
+    <button id="filter-toggle" class="filter-toggle-btn">
+      Filter by Skill <span class="toggle-icon">▼</span>
+    </button>
+  </div>
+  
+  <div id="filter-drawer" class="filter-drawer">
+    <div class="filter-drawer-inner">
+      {% for skill in all_skills %}
+        <button class="filter-btn" data-filter="{{ skill }}">{{ skill }}</button>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
 <div class="certificate-list">
-  <h2 id="professional-certifications">Professional Certifications</h2>
-  <div class="certificate-group">
+  <h2 id="professional-certifications" class="group-title">Professional Certifications</h2>
+  <div class="certificate-group" id="high-quality-group">
     {% for cert in site.data.certificates %}
       {% if cert.quality == "high" %}
-      <div class="certificate-item high-quality">
-        <div>
+      <div class="certificate-item high-quality" data-skills='{{ cert.skills | join: "," }}'>
+        <div class="certificate-header">
           <h3>
             {% if cert.link %}
             <a href="{{ cert.link }}" target="_blank" rel="noopener noreferrer">{{ cert.title }}</a>
@@ -12,26 +39,28 @@
             {{ cert.title }}
             {% endif %}
           </h3>
-          <p class="meta">
-            <strong>Issuer:</strong> {{ cert.issuer }} | <strong>Date:</strong> {{ cert.date }}
-          </p>
+          <span class="date">{{ cert.date }}</span>
         </div>
-        {% if cert.description %}
-        <p class="description">
-          {{ cert.description }}
-        </p>
+        <p class="meta">{{ cert.issuer }}</p>
+        {% if cert.description != "" %}
+        <p class="description">{{ cert.description }}</p>
         {% endif %}
+        <div class="skill-tags">
+          {% for skill in cert.skills %}
+            <span class="skill-tag">{{ skill }}</span>
+          {% endfor %}
+        </div>
       </div>
       {% endif %}
     {% endfor %}
   </div>
 
-  <h2 id="online-courses-trainings">Online Courses & Trainings</h2>
-  <div class="certificate-group">
+  <h2 id="online-courses-trainings" class="group-title">Online Courses & Trainings</h2>
+  <div class="certificate-group" id="low-quality-group">
     {% for cert in site.data.certificates %}
       {% if cert.quality == "low" %}
-      <div class="certificate-item low-quality">
-        <div>
+      <div class="certificate-item low-quality" data-skills='{{ cert.skills | join: "," }}'>
+        <div class="certificate-header">
           <h3>
             {% if cert.link %}
             <a href="{{ cert.link }}" target="_blank" rel="noopener noreferrer">{{ cert.title }}</a>
@@ -39,17 +68,91 @@
             {{ cert.title }}
             {% endif %}
           </h3>
-          <p class="meta">
-            <strong>Issuer:</strong> {{ cert.issuer }} | <strong>Date:</strong> {{ cert.date }}
-          </p>
+          <span class="date">{{ cert.date }}</span>
         </div>
-        {% if cert.description %}
-        <p class="description">
-          {{ cert.description }}
-        </p>
+        <p class="meta">{{ cert.issuer }}</p>
+        {% if cert.description != "" %}
+        <p class="description">{{ cert.description }}</p>
         {% endif %}
+        <div class="skill-tags">
+          {% for skill in cert.skills %}
+            <span class="skill-tag">{{ skill }}</span>
+          {% endfor %}
+        </div>
       </div>
       {% endif %}
     {% endfor %}
   </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const filterToggle = document.getElementById('filter-toggle');
+  const filterDrawer = document.getElementById('filter-drawer');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const certItems = document.querySelectorAll('.certificate-item');
+  const groups = document.querySelectorAll('.certificate-group');
+  const titles = document.querySelectorAll('.group-title');
+
+  // Toggle Drawer
+  filterToggle.addEventListener('click', function() {
+    const isOpen = filterDrawer.classList.contains('open');
+    if (isOpen) {
+      filterDrawer.classList.remove('open');
+      filterToggle.classList.remove('active');
+    } else {
+      filterDrawer.classList.add('open');
+      filterToggle.classList.add('active');
+    }
+  });
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Update active button
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filterValue = btn.getAttribute('data-filter');
+
+      // Update toggle button text if a skill is selected
+      if (filterValue === 'all') {
+        filterToggle.innerHTML = 'Filter by Skill <span class="toggle-icon">▼</span>';
+      } else {
+        filterToggle.innerHTML = `Skill: ${filterValue} <span class="toggle-icon">▼</span>`;
+      }
+
+      certItems.forEach(item => {
+        if (filterValue === 'all') {
+          item.style.display = 'flex';
+        } else {
+          const skills = item.getAttribute('data-skills').split(',');
+          if (skills.includes(filterValue)) {
+            item.style.display = 'flex';
+          } else {
+            item.style.display = 'none';
+          }
+        }
+      });
+
+      // Hide group titles if no items are visible in that group
+      titles.forEach((title, index) => {
+        const group = groups[index];
+        const visibleItems = group.querySelectorAll('.certificate-item[style="display: flex;"]');
+        if (visibleItems.length === 0) {
+          title.style.display = 'none';
+          group.style.display = 'none';
+        } else {
+          title.style.display = 'inline-block';
+          group.style.display = 'flex';
+        }
+      });
+
+      // Close drawer after selection if it's not the "All" button in the main controls
+      if (!btn.parentElement.classList.contains('filter-main-controls')) {
+        filterDrawer.classList.remove('open');
+        filterToggle.classList.remove('active');
+      }
+    });
+  });
+});
+</script>

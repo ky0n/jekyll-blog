@@ -4,6 +4,6 @@ title: Certificates
 permalink: /certificates/
 ---
 
-Here is a list of my professional certifications.
+_My Professional Certifications_
 
 {% include certificate_list.html %}
