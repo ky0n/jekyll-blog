@@ -1,0 +1,47 @@
+<div class="certificate-list">
+  <h2 style="margin-top: 2rem; border-bottom: 2px solid #333; padding-bottom: 0.5rem;">Professional Certifications</h2>
+  {% for cert in site.data.certificates %}
+    {% if cert.quality == "high" %}
+    <div class="certificate-item" style="margin-bottom: 2rem; border-left: 4px solid #333; padding-left: 1rem;">
+      <h3 style="margin-bottom: 0.5rem;">
+        {% if cert.link %}
+        <a href="{{ cert.link }}" target="_blank" rel="noopener noreferrer">{{ cert.title }}</a>
+        {% else %}
+        {{ cert.title }}
+        {% endif %}
+      </h3>
+      <p style="margin-bottom: 0.2rem; color: #555;">
+        <strong>Issuer:</strong> {{ cert.issuer }} | <strong>Date:</strong> {{ cert.date }}
+      </p>
+      {% if cert.description %}
+      <p style="margin-top: 0.5rem; font-style: italic;">
+        {{ cert.description }}
+      </p>
+      {% endif %}
+    </div>
+    {% endif %}
+  {% endfor %}
+
+  <h2 style="margin-top: 3rem; border-bottom: 2px solid #ccc; padding-bottom: 0.5rem; color: #666;">Online Courses & Trainings</h2>
+  {% for cert in site.data.certificates %}
+    {% if cert.quality == "low" %}
+    <div class="certificate-item" style="margin-bottom: 1.5rem; border-left: 4px solid #ccc; padding-left: 1rem; color: #444;">
+      <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem;">
+        {% if cert.link %}
+        <a href="{{ cert.link }}" target="_blank" rel="noopener noreferrer" style="color: #444;">{{ cert.title }}</a>
+        {% else %}
+        {{ cert.title }}
+        {% endif %}
+      </h3>
+      <p style="margin-bottom: 0.2rem; color: #777; font-size: 0.9rem;">
+        <strong>Issuer:</strong> {{ cert.issuer }} | <strong>Date:</strong> {{ cert.date }}
+      </p>
+      {% if cert.description %}
+      <p style="margin-top: 0.5rem; font-style: italic; font-size: 0.9rem;">
+        {{ cert.description }}
+      </p>
+      {% endif %}
+    </div>
+    {% endif %}
+  {% endfor %}
+</div>

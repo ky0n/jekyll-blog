@@ -60,6 +60,11 @@ disqus:
 
 # Build settings
 #theme: minima
+header_pages:
+  - index.markdown
+  - certificates.markdown
+  - about.markdown
+  - impressum.markdown
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
