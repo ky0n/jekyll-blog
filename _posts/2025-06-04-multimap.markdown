@@ -6,7 +6,7 @@ categories: jekyll update
 tags: [java, stream, mapMulti, jdk, java16, deutsch]
 ---
 
-## mapMulti - intermediate Stream Operation und alternative zu `flatMap`
+## mapMulti - intermediate Stream Operation und alternative zu flatMap
 
 Java 16, welches im März 2021 veröffentlicht wurde, enthält eine neue Stream-Operation namens 'mapMulti'.
 Diese ist eine _intermediate_ Stream-Operation, da sie selbst wieder ein `Stream<R>` zurückgibt.

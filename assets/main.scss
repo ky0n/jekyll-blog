@@ -314,3 +314,100 @@ a:hover {
   display: inline-block;
   transition: transform 0.3s ease;
 }
+
+/* --- Code Highlighting & Typography --- */
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--surface);
+  color: var(--accent);
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Ensure code in headings doesn't look out of place */
+h1 code, h2 code, h3 code, h4 code {
+  font-size: 0.9em;
+  background: rgba(0, 210, 255, 0.05);
+  border-color: var(--accent-glow);
+  padding: 0.1rem 0.4rem;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+pre {
+  background: var(--secondary-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  line-height: 1.6;
+  margin: 2.5rem 0;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+  color: var(--text-main);
+  font-size: 0.85rem;
+}
+
+.highlight {
+  background: var(--secondary-bg) !important;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.highlight pre {
+  margin: 0;
+  border: none;
+}
+
+/* --- Tables & Blockquotes --- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  background: var(--surface);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 1rem;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+th {
+  background: var(--secondary-bg);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+blockquote {
+  border-left: 4px solid var(--accent);
+  background: var(--secondary-bg);
+  padding: 1rem 2rem;
+  margin: 2rem 0;
+  color: var(--text-muted);
+  font-style: italic;
+  border-radius: 0 8px 8px 0;
+}
+
+/* Syntax Highlighting Overrides for Dark Theme */
+.highlight {
+  .c, .c1, .cm { color: var(--text-dim); font-style: italic; } /* Comments */
+  .k, .kd, .kn, .kp, .kr, .kt { color: #ff7b72; font-weight: bold; } /* Keywords */
+  .s, .s1, .s2, .sb, .sc, .sd, .sh, .si, .sx { color: #a5d6ff; } /* Strings */
+  .na, .nc, .ne, .nf, .no, .nt, .nv { color: #d2a8ff; } /* Names/Functions */
+  .m, .mi, .mf, .mo, .mh { color: #79c0ff; } /* Numbers */
+  .o, .ow { color: #ff7b72; } /* Operators */
+}
