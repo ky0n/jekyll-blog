@@ -65,6 +65,7 @@ header_pages:
   - certificates.markdown
   - about.markdown
   - impressum.markdown
+  - tic-tac-toe.html
 plugins:
   - jekyll-feed
   - jekyll-seo-tag

@@ -1,0 +1,238 @@
+---
+layout: page
+title: Tic-Tac-Toe
+permalink: /tic-tac-toe/
+---
+
+<style>
+    .game-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 0;
+        background-image: radial-gradient(circle at 50% 50%, rgba(0, 210, 255, 0.05) 0%, transparent 50%);
+    }
+
+    .game-container h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        background: linear-gradient(to right, #fff, var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -1px;
+    }
+
+    .status {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: var(--text-muted);
+        height: 1.5rem;
+    }
+
+    .board {
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
+        gap: 12px;
+        background: var(--border);
+        padding: 12px;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    .cell {
+        width: 100px;
+        height: 100px;
+        background: var(--surface);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        font-weight: 800;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        user-select: none;
+    }
+
+    .cell:hover:not(.taken) {
+        background: #1c2128;
+        box-shadow: inset 0 0 10px var(--accent-glow);
+    }
+
+    .cell.taken {
+        cursor: default;
+    }
+
+    .cell.x { color: #ff7b72; text-shadow: 0 0 15px rgba(255, 123, 114, 0.3); }
+    .cell.o { color: #79c0ff; text-shadow: 0 0 15px rgba(121, 192, 255, 0.3); }
+
+    .btn {
+        margin-top: 2rem;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        color: var(--text-muted);
+        padding: 0.8rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        box-shadow: 0 0 15px var(--accent-glow);
+    }
+
+    .winning-cell {
+        background: rgba(0, 210, 255, 0.1) !important;
+        animation: pulse 1s infinite alternate;
+    }
+
+    @keyframes pulse {
+        from { box-shadow: inset 0 0 10px var(--accent-glow); }
+        to { box-shadow: inset 0 0 20px var(--accent-glow); }
+    }
+</style>
+
+<div class="game-container">
+    <h1>TIC TAC TOE</h1>
+    <div class="status" id="status">Your turn (X)</div>
+
+    <div class="board" id="board">
+        <div class="cell" data-index="0"></div>
+        <div class="cell" data-index="1"></div>
+        <div class="cell" data-index="2"></div>
+        <div class="cell" data-index="3"></div>
+        <div class="cell" data-index="4"></div>
+        <div class="cell" data-index="5"></div>
+        <div class="cell" data-index="6"></div>
+        <div class="cell" data-index="7"></div>
+        <div class="cell" data-index="8"></div>
+    </div>
+
+    <button class="btn" onclick="resetGame()">Reset Game</button>
+</div>
+
+<script>
+    const boardElement = document.getElementById('board');
+    const statusElement = document.getElementById('status');
+    const cells = document.querySelectorAll('.cell');
+    let board = Array(9).fill(null);
+    let gameActive = true;
+    const HUMAN = 'X';
+    const AI = 'O';
+
+    const winConditions = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // cols
+        [0, 4, 8], [2, 4, 6]             // diagonals
+    ];
+
+    cells.forEach(cell => {
+        cell.addEventListener('click', () => handleHumanMove(cell));
+    });
+
+    function handleHumanMove(cell) {
+        const index = cell.getAttribute('data-index');
+        if (board[index] || !gameActive) return;
+
+        makeMove(index, HUMAN);
+        
+        if (gameActive) {
+            statusElement.innerText = "Computer is thinking...";
+            setTimeout(handleAIMove, 600);
+        }
+    }
+
+    function handleAIMove() {
+        if (!gameActive) return;
+        const move = getSmartMove();
+        makeMove(move, AI);
+        if (gameActive) {
+            statusElement.innerText = "Your turn (X)";
+        }
+    }
+
+    function makeMove(index, player) {
+        board[index] = player;
+        const cell = cells[index];
+        cell.innerText = player;
+        cell.classList.add('taken', player.toLowerCase());
+
+        const winner = checkWin(board, player);
+        if (winner) {
+            endGame(player, winner);
+        } else if (board.every(cell => cell !== null)) {
+            endGame('draw');
+        }
+    }
+
+    function checkWin(currentBoard, player) {
+        for (let condition of winConditions) {
+            if (condition.every(index => currentBoard[index] === player)) {
+                return condition;
+            }
+        }
+        return null;
+    }
+
+    function getSmartMove() {
+        // 1. Can AI win?
+        for (let i = 0; i < 9; i++) {
+            if (!board[i]) {
+                let copy = [...board];
+                copy[i] = AI;
+                if (checkWin(copy, AI)) return i;
+            }
+        }
+
+        // 2. Can Human win? Block it.
+        for (let i = 0; i < 9; i++) {
+            if (!board[i]) {
+                let copy = [...board];
+                copy[i] = HUMAN;
+                if (checkWin(copy, HUMAN)) return i;
+            }
+        }
+
+        // 3. To make it "smart but not perfect", sometimes play suboptimal
+        if (Math.random() < 0.2) {
+            const empty = board.map((v, i) => v === null ? i : null).filter(v => v !== null);
+            return empty[Math.floor(Math.random() * empty.length)];
+        }
+
+        // 4. Prefer Center
+        if (!board[4]) return 4;
+
+        // 5. Prefer Corners
+        const corners = [0, 2, 6, 8].filter(i => !board[i]);
+        if (corners.length > 0) return corners[Math.floor(Math.random() * corners.length)];
+
+        // 6. Random
+        const empty = board.map((v, i) => v === null ? i : null).filter(v => v !== null);
+        return empty[Math.floor(Math.random() * empty.length)];
+    }
+
+    function endGame(result, line) {
+        gameActive = false;
+        if (result === 'draw') {
+            statusElement.innerText = "It's a draw!";
+        } else {
+            statusElement.innerText = result === HUMAN ? "You won!" : "Computer wins!";
+            line.forEach(index => cells[index].classList.add('winning-cell'));
+        }
+    }
+
+    function resetGame() {
+        board = Array(9).fill(null);
+        gameActive = true;
+        statusElement.innerText = "Your turn (X)";
+        cells.forEach(cell => {
+            cell.innerText = '';
+            cell.className = 'cell';
+        });
+    }
+</script>
