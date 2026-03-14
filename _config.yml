@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Hendrik Schick - Software Consultant
+title: Hendrik Schick - Software Engineer & Consultant
 email: mail@hendrik-schick.me
 description: >- # this means to ignore newlines until "baseurl:"
   Ich schreibe über Softwareentwicklung, Java und weitere interessante Themen, die mir über den Weg laufen. 
@@ -64,8 +64,9 @@ header_pages:
   - index.markdown
   - certificates.markdown
   - about.markdown
-  - impressum.markdown
+  - cheatsheets.html
   - chess.html
+  - impressum.markdown
 plugins:
   - jekyll-feed
   - jekyll-seo-tag

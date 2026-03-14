@@ -1,0 +1,111 @@
+---
+layout: page
+title: Cheat Sheets
+permalink: /cheatsheets/
+---
+
+<style>
+    .cheatsheet-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .cheatsheet-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.5rem;
+        transition: var(--transition);
+        text-decoration: none;
+        display: block;
+    }
+
+    .cheatsheet-card:hover {
+        border-color: var(--accent);
+        box-shadow: 0 0 20px var(--accent-glow);
+        transform: translateY(-2px);
+    }
+
+    .cheatsheet-card h3 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.2rem;
+        color: var(--text-main);
+    }
+
+    .cheatsheet-card h3::before {
+        display: none;
+    }
+
+    .cheatsheet-card p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+    }
+
+    .cheatsheet-card .badge {
+        display: inline-block;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        background: rgba(0, 210, 255, 0.1);
+        color: var(--accent);
+        padding: 0.2rem 0.6rem;
+        border-radius: 4px;
+        border: 1px solid var(--accent-glow);
+        margin-bottom: 0.75rem;
+    }
+</style>
+
+_Quick-reference guides for developers — Java, Angular, Kubernetes & more._
+
+<div class="cheatsheet-grid">
+    <a class="cheatsheet-card" href="/cheatsheets/java-streams/">
+        <span class="badge">Java 25</span>
+        <h3>Java Streams</h3>
+        <p>Stream-Operationen, Collectors, Gatherers, mapMulti &amp; mehr.</p>
+    </a>
+
+    <a class="cheatsheet-card" href="/cheatsheets/java-serialization/">
+        <span class="badge">Java 25</span>
+        <h3>Java Serialization</h3>
+        <p>Serializable, Record Serialization, Deserialization Filters &amp; Best Practices.</p>
+    </a>
+
+    <a class="cheatsheet-card" href="/cheatsheets/java-concurrency/">
+        <span class="badge">Java 25</span>
+        <h3>Java Concurrency</h3>
+        <p>Virtual Threads, Structured Concurrency, Scoped Values &amp; klassische Concurrency.</p>
+    </a>
+
+    <a class="cheatsheet-card" href="/cheatsheets/angular/">
+        <span class="badge">Angular 21</span>
+        <h3>Angular</h3>
+        <p>Signals, Zoneless, Control Flow, Components, Routing, HttpClient &amp; mehr.</p>
+    </a>
+
+    <a class="cheatsheet-card" href="/cheatsheets/kubernetes/">
+        <span class="badge">K8s</span>
+        <h3>Kubernetes</h3>
+        <p>kubectl, Pods, Deployments, Services, Ingress, RBAC &amp; mehr.</p>
+    </a>
+
+    <a class="cheatsheet-card" href="/cheatsheets/openshift/">
+        <span class="badge">OpenShift</span>
+        <h3>OpenShift</h3>
+        <p>oc CLI, S2I Builds, Routes, ImageStreams, SCCs &amp; Projekte.</p>
+    </a>
+
+    <a class="cheatsheet-card" href="/cheatsheets/tekton/">
+        <span class="badge">Tekton</span>
+        <h3>Tekton</h3>
+        <p>Tasks, Pipelines, Workspaces, Triggers &amp; tkn CLI.</p>
+    </a>
+
+    <a class="cheatsheet-card" href="/cheatsheets/argocd/">
+        <span class="badge">Argo CD</span>
+        <h3>Argo CD</h3>
+        <p>GitOps, Applications, ApplicationSets, Sync Waves &amp; Hooks.</p>
+    </a>
+</div>
