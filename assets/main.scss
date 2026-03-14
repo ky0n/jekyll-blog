@@ -55,9 +55,6 @@ body {
   line-height: 64px;
   text-transform: uppercase;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 45%;
 }
 
 @media (max-width: 600px) {
@@ -78,11 +75,11 @@ body {
 .page-link {
   color: var(--text-muted) !important;
   text-decoration: none;
-  margin-left: 16px;
+  margin-left: 12px;
   font-weight: 500;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   transition: var(--transition);
-  letter-spacing: 0.3px;
+  letter-spacing: 0.2px;
 }
 
 .page-link:hover {
