@@ -3,7 +3,7 @@ layout: page
 title: "Argo CD Cheat Sheet"
 permalink: /cheatsheets/argocd/
 ---
-
+{% raw %}
 _GitOps Continuous Delivery f&uuml;r Kubernetes._
 
 ## Konzepte
@@ -300,3 +300,4 @@ Status prüfen             argocd app get my-app            Dashboard
 Repo hinzufügen           argocd repo add URL              Settings
 Cluster hinzufügen        argocd cluster add CONTEXT       Settings
 ```
+{% endraw %}

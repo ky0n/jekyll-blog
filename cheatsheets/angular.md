@@ -3,7 +3,7 @@ layout: page
 title: "Angular Cheat Sheet"
 permalink: /cheatsheets/angular/
 ---
-
+{% raw %}
 _Updated for Angular v21 — includes Signals, Zoneless, Signal Forms & more._
 
 ## Signals
@@ -469,3 +469,4 @@ Route Guards                     CanActivateFn (funktional)
 HTTP Interceptors                HttpInterceptorFn (funktional)
 Change Detection                 Zoneless (Signals)
 ```
+{% endraw %}
