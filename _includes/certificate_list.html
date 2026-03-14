@@ -123,11 +123,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
       certItems.forEach(item => {
         if (filterValue === 'all') {
-          item.style.display = 'flex';
+          item.style.display = '';
         } else {
           const skills = item.getAttribute('data-skills').split(',');
           if (skills.includes(filterValue)) {
-            item.style.display = 'flex';
+            item.style.display = '';
           } else {
             item.style.display = 'none';
           }
@@ -137,13 +137,13 @@ document.addEventListener('DOMContentLoaded', function() {
       // Hide group titles if no items are visible in that group
       titles.forEach((title, index) => {
         const group = groups[index];
-        const visibleItems = group.querySelectorAll('.certificate-item[style="display: flex;"]');
+        const visibleItems = group.querySelectorAll('.certificate-item:not([style*="display: none"])');
         if (visibleItems.length === 0) {
           title.style.display = 'none';
           group.style.display = 'none';
         } else {
-          title.style.display = 'inline-block';
-          group.style.display = 'flex';
+          title.style.display = '';
+          group.style.display = '';
         }
       });
 

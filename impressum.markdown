@@ -13,3 +13,7 @@ Kornstrasse 3
 Schweiz
 
 Email: [hendrikjschick@gmail.com](mailto:hendrikjschick@gmail.com) oder [mail@hendrik-schick.me](mail@hendrik-schick.me)
+
+---
+
+[Datenschutzerkl&auml;rung](/datenschutz/)
