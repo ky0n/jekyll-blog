@@ -361,6 +361,44 @@
     exit: function() {
       return [{ text: 'There is no escape. Try "help" instead.', cls: 'response' }];
     },
+    andre: function() {
+      var lines = [
+        { text: '', cls: '' },
+        { text: '  Hallo Andre!! 😎', cls: 'accent' },
+        { text: '', cls: '' },
+      ];
+      // Schedule the animated ASCII art appearance
+      setTimeout(function() {
+        var artLines = [
+          { text: '                    ╭──────────────────────╮', cls: 'response' },
+          { text: '                    │ "Was laberscht du?" │', cls: 'accent' },
+          { text: '                    ╰───────────┬──────────╯', cls: 'response' },
+          { text: '          ┌──────────┐          │', cls: 'response' },
+          { text: '          │ ▓▓▓▓▓▓▓▓ │         ╱', cls: 'response' },
+          { text: '          │▓▓▓▓▓▓▓▓▓▓│        ╱', cls: 'response' },
+          { text: '          ▓ ◉      ◉ ▓', cls: 'response' },
+          { text: '          ▓    ██    ▓', cls: 'response' },
+          { text: '          ▓  ╰════╯  ▓   Isch möschte nischt,', cls: 'response' },
+          { text: '          ▓ ▓▓▓▓▓▓▓▓ ▓   dass hier irgendjemand', cls: 'response' },
+          { text: '           ▓▓▓▓▓▓▓▓▓▓    Befehle eingibt.', cls: 'response' },
+          { text: '           ║        ║', cls: 'response' },
+          { text: '           ║ ANTOINE║     Das isch Reschpekt.', cls: 'response' },
+          { text: '           ╚════════╝', cls: 'response' },
+          { text: '', cls: '' },
+        ];
+        var i = 0;
+        function showNextLine() {
+          if (i < artLines.length) {
+            addLine(artLines[i].text, artLines[i].cls);
+            scrollToBottom();
+            i++;
+            setTimeout(showNextLine, 80);
+          }
+        }
+        showNextLine();
+      }, 200);
+      return lines;
+    },
     alex: function() {
       launchRocket();
       return [
