@@ -3,25 +3,24 @@ layout: page
 title: About
 permalink: /about/
 ---
-<img src="/assets/images/profil.jpg" alt="Mein Bild" width="500">  
+<img src="/assets/images/profil.jpg" alt="Hendrik Schick" width="500">
 
-## Kurz zu mir ...
-Hoi.  
-Mein Name ist Hendrik. Ich wohne in der Metropolregion Zürichs in der Nähe des Greifensees.  
-Aufgewachsen bin ich bei Leipzig (Deutschland). In Leipzig habe ich Informatik im Bachelor studiert, danach an der TU Darmstadt (südlich von Frankfurt) den Master in Informatik. Als Werkstudent war ich in verschiedenen Arbeitsverhältnissen als Backend-Developer, Frontend-Developer und als Softwaretester tätig.  
-Nach dem abgeschlossenen Studium bin ich in die Schweiz, Raum Zürich, gezogen und arbeite hier als Softwareentwickler für Backend, Frontend und DevOps. Zunächst für 2½ Jahre als Softwareentwickler und nun aktuell bei ERNI AG als Fullstack- & DevOps-Entwickler  auf einem Projekt.  
+## A bit about me ...
+Hey there.
+My name is Hendrik. I live in the Zurich metropolitan area, close to the Greifensee.
+I grew up near Leipzig, Germany. I studied Computer Science for my Bachelor's in Leipzig, then completed my Master's in Computer Science at TU Darmstadt (south of Frankfurt). During my studies, I worked as a student employee in various roles — as a backend developer, frontend developer, and software tester.
+After graduating, I moved to Switzerland, the Zurich area, and have been working here as a software developer for backend, frontend, and DevOps. First for 2.5 years as a software developer, and currently at ERNI AG as a Fullstack & DevOps Engineer on a project.
 
 ---
-## Warum die Webseite/Blog?
-Ich möchte hier insbesondere über Informatik-relevante Themen schreiben, die mir während der Arbeit oder in der Freizeit über den Weg laufen.  
-Der Fokus liegt wohl auf Java, aber es werden sicherlich auch Blogeinträge zu anderen Informatik-Themen kommen. Vielleicht auch ausserhalb der Informatik,  
-wenn das Thema sich dafür anbietet und für weitere interessant sein könnte.
+## Why this website/blog?
+I want to write here mainly about computer science topics that I come across during work or in my free time.
+The focus will likely be on Java, but there will certainly also be blog posts on other CS topics. Maybe even outside of computer science, if the topic lends itself to it and could be interesting to others.
 
-Ausserdem biete ich Services an im Bereich Softwareentwicklung und Softwareberatung. Bei Fragen dazu, schreibe mir gerne.
+I also offer services in the area of software development and software consulting. If you have any questions about that, feel free to reach out.
 
----  
-Schreib mir gerne eine [E-Mail](mailto:hendrik.schick), wenn du mit mir in Kontakt treten möchtest!
+---
+Feel free to send me an [email](mailto:mail@hendrik-schick.me) — I'd love to hear from you!
 
-Liebe Grüsse
+Best regards,
 
 Hendrik
