@@ -361,6 +361,14 @@
     exit: function() {
       return [{ text: 'There is no escape. Try "help" instead.', cls: 'response' }];
     },
+    alex: function() {
+      launchRocket();
+      return [
+        { text: '', cls: '' },
+        { text: '    HALLO ALEX!! 🚀', cls: 'accent' },
+        { text: '', cls: '' },
+      ];
+    },
     neofetch: function() {
       return [
         { text: 'hendrik@zurich', cls: 'accent' },
@@ -509,6 +517,149 @@
     input.focus();
   });
 
+  function launchRocket() {
+    var rocket = document.createElement('div');
+    rocket.className = 'easter-rocket';
+    rocket.innerHTML = '<div class="rocket-body">' +
+      '<div class="rocket-tip"></div>' +
+      '<div class="rocket-hull"></div>' +
+      '<div class="rocket-window"></div>' +
+      '<div class="rocket-fin rocket-fin-l"></div>' +
+      '<div class="rocket-fin rocket-fin-r"></div>' +
+      '<div class="rocket-flame"></div>' +
+      '<div class="rocket-flame flame-2"></div>' +
+      '<div class="rocket-smoke smoke-1"></div>' +
+      '<div class="rocket-smoke smoke-2"></div>' +
+      '<div class="rocket-smoke smoke-3"></div>' +
+      '</div>';
+    document.body.appendChild(rocket);
+    setTimeout(function() { rocket.classList.add('launch'); }, 50);
+    setTimeout(function() { rocket.remove(); }, 4000);
+  }
+
   typeIntro();
 })();
 </script>
+
+<style>
+.easter-rocket {
+  position: fixed;
+  bottom: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  pointer-events: none;
+  transition: none;
+}
+.easter-rocket.launch {
+  animation: rocket-launch 3.5s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+}
+.rocket-body {
+  position: relative;
+  width: 60px;
+  height: 180px;
+}
+.rocket-tip {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-bottom: 40px solid #e74c3c;
+}
+.rocket-hull {
+  position: absolute;
+  top: 38px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 80px;
+  background: linear-gradient(90deg, #bdc3c7, #ecf0f1, #bdc3c7);
+  border-radius: 0 0 8px 8px;
+}
+.rocket-window {
+  position: absolute;
+  top: 55px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle, #74b9ff, #0984e3);
+  border-radius: 50%;
+  border: 2px solid #636e72;
+  box-shadow: 0 0 10px rgba(116, 185, 255, 0.5);
+}
+.rocket-fin {
+  position: absolute;
+  top: 95px;
+  width: 0;
+  height: 0;
+}
+.rocket-fin-l {
+  left: 2px;
+  border-top: 15px solid transparent;
+  border-right: 14px solid #e74c3c;
+  border-bottom: 15px solid transparent;
+  transform: rotate(15deg);
+}
+.rocket-fin-r {
+  right: 2px;
+  border-top: 15px solid transparent;
+  border-left: 14px solid #e74c3c;
+  border-bottom: 15px solid transparent;
+  transform: rotate(-15deg);
+}
+.rocket-flame {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 50px;
+  background: linear-gradient(180deg, #f39c12, #e74c3c, #e74c3c00);
+  border-radius: 0 0 50% 50%;
+  animation: flame-flicker 0.1s infinite alternate;
+}
+.flame-2 {
+  width: 12px;
+  height: 65px;
+  bottom: -35px;
+  background: linear-gradient(180deg, #fdcb6e, #e17055, transparent);
+  animation-delay: -0.05s;
+}
+.rocket-smoke {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  background: rgba(200, 200, 200, 0.3);
+  border-radius: 50%;
+  animation: smoke-puff 0.8s ease-out infinite;
+}
+.smoke-1 { animation-delay: 0s; }
+.smoke-2 { animation-delay: -0.3s; left: 35%; }
+.smoke-3 { animation-delay: -0.6s; left: 65%; }
+
+@keyframes rocket-launch {
+  0% { bottom: -200px; transform: translateX(-50%) rotate(0deg); }
+  10% { bottom: 0; }
+  15% { transform: translateX(-50%) rotate(-2deg); }
+  20% { transform: translateX(-50%) rotate(2deg); }
+  30% { bottom: 20%; transform: translateX(-50%) rotate(-1deg); }
+  100% { bottom: 120vh; transform: translateX(-50%) rotate(1deg); }
+}
+
+@keyframes flame-flicker {
+  from { transform: translateX(-50%) scaleX(0.8) scaleY(0.9); }
+  to { transform: translateX(-50%) scaleX(1.2) scaleY(1.1); }
+}
+
+@keyframes smoke-puff {
+  0% { transform: scale(0.5) translateY(0); opacity: 0.5; }
+  100% { transform: scale(2.5) translateY(30px); opacity: 0; }
+}
+</style>
