@@ -65,7 +65,6 @@ header_pages:
   - certificates.markdown
   - cheatsheets.html
   - chess.html
-  - impressum.markdown
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
