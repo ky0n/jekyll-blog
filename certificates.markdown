@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Certificates
+title: My Certificates
 permalink: /certificates/
 ---
 

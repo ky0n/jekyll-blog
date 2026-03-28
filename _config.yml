@@ -63,8 +63,6 @@ disqus:
 header_pages:
   - about.markdown
   - certificates.markdown
-  - cheatsheets.html
-  - chess.html
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
