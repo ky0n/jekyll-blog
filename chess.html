@@ -59,7 +59,14 @@ permalink: /chess/
     .square.light { background: #b8c6db; }
     .square.dark { background: #6b8bb5; }
 
-    .square.white-piece { color: #fff; -webkit-text-stroke: 1px #555; }
+    .square.white-piece {
+        color: #fff;
+        text-shadow:
+            -1px -1px 0 #555,
+             1px -1px 0 #555,
+            -1px  1px 0 #555,
+             1px  1px 0 #555;
+    }
     .square.black-piece { color: #1a1a1a; text-shadow: 0 0 2px rgba(0,0,0,0.3); }
 
     .square.selected { background: #f6f669 !important; }

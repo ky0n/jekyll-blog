@@ -425,24 +425,41 @@ pre code {
 /* --- Tables & Blockquotes --- */
 
 table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 2rem 0;
-  background: var(--surface);
-  border-radius: 8px;
+  width: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  margin: 2rem 0 !important;
+  background: var(--surface) !important;
+  border-radius: 8px !important;
   overflow: hidden;
+  border: 1px solid var(--border) !important;
 }
 
-th, td {
-  padding: 1rem;
-  border: 1px solid var(--border);
+table th, table td {
+  padding: 0.85rem 1rem !important;
+  border: none !important;
+  border-bottom: 1px solid var(--border) !important;
   text-align: left;
+  color: var(--text-main) !important;
+  background: transparent !important;
 }
 
-th {
-  background: var(--secondary-bg);
-  color: var(--accent);
+table th {
+  background: rgba(0, 210, 255, 0.1) !important;
+  color: var(--accent) !important;
   font-weight: 700;
+}
+
+table tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+table tr:nth-child(odd) {
+  background-color: transparent !important;
+}
+
+table tr:hover td {
+  background: rgba(0, 210, 255, 0.05) !important;
 }
 
 blockquote {

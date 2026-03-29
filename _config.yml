@@ -41,15 +41,6 @@ minima:
     - title: BlueSky
       icon: bluesky
       url: "https://bsky.app/profile/hendrik-schick.me"
-    - title: meetup
-      icon: meetup
-      url: "https://www.meetup.com/members/382573529/"
-    - title: telegram
-      icon: telegram
-      url: "https://t.me/hendrikk"
-    - title: steam
-      icon: steam
-      url: "https://steamcommunity.com/profiles/76561198370862368/"
 
 author:
   name: Hendrik Schick
