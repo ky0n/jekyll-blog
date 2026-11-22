@@ -81,17 +81,32 @@ body {
 }
 
 .page-link {
-  color: var(--text-muted) !important;
-  text-decoration: none;
-  margin-left: 12px;
+  color: var(--text-main) !important;
+  text-decoration: none !important;
+  margin-left: 24px;
   font-weight: 500;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   transition: var(--transition);
-  letter-spacing: 0.2px;
+  letter-spacing: 0.01em;
 }
 
 .page-link:hover {
   color: var(--accent) !important;
+}
+
+/* Hamburger toggle for secondary pages */
+.dropdown-toggle {
+  background: none;
+  border: none;
+  padding: 4px;
+  font: inherit;
+  vertical-align: middle;
+  line-height: 0;
+}
+
+.dropdown-toggle svg {
+  fill: currentColor;
+  display: block;
 }
 
 /* --- Nav Dropdown --- */
@@ -119,23 +134,26 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
-.nav-dropdown:hover .dropdown-menu {
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
   display: block;
 }
 
 .dropdown-item {
   display: block;
-  padding: 0.4rem 1rem;
-  color: var(--text-muted);
-  text-decoration: none;
-  font-size: 0.8rem;
+  padding: 0.5rem 1.1rem;
+  color: var(--text-main) !important;
+  text-decoration: none !important;
+  line-height: 1.4;
+  text-align: left;
+  font-size: 0.9rem;
   font-weight: 500;
   transition: var(--transition);
   white-space: nowrap;
 }
 
 .dropdown-item:hover {
-  color: var(--accent);
+  color: var(--accent) !important;
   background: rgba(var(--accent-rgb), 0.05);
 }
 
@@ -592,10 +610,32 @@ blockquote {
     color: var(--text-main) !important;
   }
 
+  .site-nav .dropdown-toggle {
+    display: none;
+  }
+
   .site-nav .dropdown-menu {
+    display: block;
     position: static;
     box-shadow: none;
     border: none;
     background: transparent;
+    padding: 0;
+    min-width: 0;
   }
+
+  .site-nav .dropdown-item {
+    font-size: 0.95rem;
+    padding: 5px 10px;
+    margin-left: 20px;
+    line-height: 1.5;
+    text-align: right;
+  }
+}
+
+/* --- Swiss flag next to site title --- */
+.site-title .swiss-flag {
+  display: inline-block;
+  vertical-align: -2px;
+  margin-left: 0.6em;
 }
