@@ -5,11 +5,9 @@ permalink: /about/
 ---
 <img class="profile-photo" src="/assets/images/profil.jpg" alt="Hendrik Schick" width="200" height="200">
 
-## A bit about me ...
-Hey there.
-My name is Hendrik. I live in the Zurich metropolitan area, close to the Greifensee.
-I grew up near Leipzig, Germany. I studied Computer Science for my Bachelor's in Leipzig, then completed my Master's in Computer Science at TU Darmstadt (south of Frankfurt). During my studies, I worked as a student employee in various roles — as a backend developer, frontend developer, and software tester.
-After graduating, I moved to Switzerland, the Zurich area, and have been working here as a software developer for backend, frontend, and DevOps. First for 2.5 years as a software developer, and currently at ERNI AG as a Fullstack & DevOps Engineer on a project.
+## Summary
+I'm a Fullstack & DevOps Software Engineer based in the Zurich area with over 5 years of professional experience in backend, frontend and cloud development. I hold a Master's in Computer Science from TU Darmstadt and a Bachelor's from HTWK Leipzig.
+Originally from the Leipzig area, I moved to Switzerland after graduating. After 2.5 years as a software engineer at Adcubum AG, I now work as a Fullstack & DevOps Engineer Consultant at ERNI AG.
 
 ---
 ## Experience
@@ -51,22 +49,14 @@ Before that, I gained early hands-on experience as a **working student web devel
 
 My core tech stack includes **Java**, **Spring Boot**, **Angular**, **Kubernetes/OpenShift**, and **CI/CD** with ArgoCD, Tekton, and Jenkins. I hold certifications including **Oracle Certified Java Developer**, **Spring Professional Developer**, **CKAD**, **iSAQB CPSA-F**, **AWS Certified Cloud Practitioner**, and **Azure Fundamentals**.
 
-I studied Computer Science at **HTWK Leipzig** (BSc) and **TU Darmstadt** (MSc), with a focus on Software Architecture and Deep Learning.
+I studied Computer Science at **HTWK Leipzig** (BSc) and **TU Darmstadt** (MSc), with a focus on Software Architecture and Deep Learning. Alongside my job, I'm currently a guest student at the **Technical University of Munich (TUM)**, attending several advanced computer science modules.
 
 Beyond my day-to-day work, I regularly attend **Java User Group** meetups and participate in **Hackergarten** events — contributing to open-source projects and staying connected with the developer community.
 
 For a full overview of my career and recommendations, visit my [LinkedIn profile](https://www.linkedin.com/in/hendrik-schick/).
 
 ---
-## Why this website/blog?
-I want to write here mainly about computer science topics that I come across during work or in my free time.
-The focus will likely be on Java, but there will certainly also be blog posts on other CS topics. Maybe even outside of computer science, if the topic lends itself to it and could be interesting to others.
+## About this website
+I write about software engineering topics from my work and my own projects — mostly Java, along with other areas of computer science.
 
-I also offer services in the area of software development and software consulting. If you have any questions about that, feel free to reach out.
-
----
-Feel free to send me an [email](mailto:mail@hendrik-schick.me) — I'd love to hear from you!
-
-Best regards,
-
-Hendrik
+I also offer software development and consulting services. For enquiries, see the [contact page](/contact/).
