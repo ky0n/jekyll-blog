@@ -1,0 +1,21 @@
+<div class="certificate-item {{ include.cert.quality }}-quality" data-skills='{{ include.cert.skills | join: "," }}'>
+  <div class="certificate-header">
+    <h3>
+      {%- if include.cert.link and include.cert.link != "" -%}
+      <a href="{{ include.cert.link }}" target="_blank" rel="noopener noreferrer">{{ include.cert.title }}</a>
+      {%- else -%}
+      {{ include.cert.title }}
+      {%- endif -%}
+    </h3>
+    <span class="date">{{ include.cert.date | date: "%b %Y" }}</span>
+  </div>
+  <div class="certificate-details">
+    <span class="meta">{{ include.cert.issuer }}</span>
+    {%- for skill in include.cert.skills -%}
+      <span class="skill-tag">{{ skill }}</span>
+    {%- endfor -%}
+    {%- if include.cert.description != "" -%}
+      <span class="description">{{ include.cert.description }}</span>
+    {%- endif -%}
+  </div>
+</div>

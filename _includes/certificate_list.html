@@ -30,27 +30,7 @@
   <div class="certificate-group" id="high-quality-group">
     {% for cert in site.data.certificates %}
       {% if cert.quality == "high" %}
-      <div class="certificate-item high-quality" data-skills='{{ cert.skills | join: "," }}'>
-        <div class="certificate-header">
-          <h3>
-            {% if cert.link %}
-            <a href="{{ cert.link }}" target="_blank" rel="noopener noreferrer">{{ cert.title }}</a>
-            {% else %}
-            {{ cert.title }}
-            {% endif %}
-          </h3>
-          <span class="date">{{ cert.date }}</span>
-        </div>
-        <p class="meta">{{ cert.issuer }}</p>
-        {% if cert.description != "" %}
-        <p class="description">{{ cert.description }}</p>
-        {% endif %}
-        <div class="skill-tags">
-          {% for skill in cert.skills %}
-            <span class="skill-tag">{{ skill }}</span>
-          {% endfor %}
-        </div>
-      </div>
+        {% include certificate_item.html cert=cert %}
       {% endif %}
     {% endfor %}
   </div>
@@ -59,27 +39,7 @@
   <div class="certificate-group" id="low-quality-group">
     {% for cert in site.data.certificates %}
       {% if cert.quality == "low" %}
-      <div class="certificate-item low-quality" data-skills='{{ cert.skills | join: "," }}'>
-        <div class="certificate-header">
-          <h3>
-            {% if cert.link %}
-            <a href="{{ cert.link }}" target="_blank" rel="noopener noreferrer">{{ cert.title }}</a>
-            {% else %}
-            {{ cert.title }}
-            {% endif %}
-          </h3>
-          <span class="date">{{ cert.date }}</span>
-        </div>
-        <p class="meta">{{ cert.issuer }}</p>
-        {% if cert.description != "" %}
-        <p class="description">{{ cert.description }}</p>
-        {% endif %}
-        <div class="skill-tags">
-          {% for skill in cert.skills %}
-            <span class="skill-tag">{{ skill }}</span>
-          {% endfor %}
-        </div>
-      </div>
+        {% include certificate_item.html cert=cert %}
       {% endif %}
     {% endfor %}
   </div>

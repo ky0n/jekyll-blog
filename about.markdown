@@ -19,9 +19,9 @@ With over 5 years of professional experience, I have worked across the full soft
 <table style="width:100%; border-collapse:collapse; background:var(--surface); border:1px solid var(--border); border-radius:8px; overflow:hidden;">
   <thead>
     <tr>
-      <th style="padding:0.85rem 1rem; color:var(--accent); background:rgba(0,210,255,0.1); border-bottom:1px solid var(--border);">When</th>
-      <th style="padding:0.85rem 1rem; color:var(--accent); background:rgba(0,210,255,0.1); border-bottom:1px solid var(--border);">Role</th>
-      <th style="padding:0.85rem 1rem; color:var(--accent); background:rgba(0,210,255,0.1); border-bottom:1px solid var(--border);">Company</th>
+      <th style="padding:0.85rem 1rem; color:var(--accent); background:rgba(var(--accent-rgb),0.1); border-bottom:1px solid var(--border);">When</th>
+      <th style="padding:0.85rem 1rem; color:var(--accent); background:rgba(var(--accent-rgb),0.1); border-bottom:1px solid var(--border);">Role</th>
+      <th style="padding:0.85rem 1rem; color:var(--accent); background:rgba(var(--accent-rgb),0.1); border-bottom:1px solid var(--border);">Company</th>
     </tr>
   </thead>
   <tbody>

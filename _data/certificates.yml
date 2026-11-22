@@ -1,6 +1,142 @@
+- title: "Foundations of Geographic Information Systems (GIS)"
+  issuer: "LinkedIn"
+  link: "https://www.linkedin.com/learning/certificates/589445f4cf4954d215c5d5f7b937286c32a3e4e16df9954fca9f6aaa5246812d/"
+  date: "2026-11-01"
+  description: ""
+  skills: ["Geographic Information Systems (GIS)"]
+  quality: "low"
+
+- title: "Learning Oracle Database 19c"
+  issuer: "LinkedIn"
+  link: "https://www.linkedin.com/learning/certificates/0ac9682d33ed658f3aff422f1f0bf43958dfa37190de1f0a25432389151e0e06/"
+  date: "2026-11-01"
+  description: ""
+  skills: ["Oracle Database"]
+  quality: "low"
+
+- title: "Computer Architecture"
+  issuer: "KodeKloud"
+  link: "https://learn.kodekloud.com/certificate/daca08f7-054f-4284-b44f-779e2aae3596"
+  date: "2026-11-01"
+  description: "Credential ID daca08f7-054f-4284-b44f-779e2aae3596"
+  skills: ["Computer Architecture"]
+  quality: "low"
+
+- title: "iSAQB® CLOUDINFRA - Advanced Level Zertifizierung"
+  issuer: "iSAQB®"
+  link: "https://tecnovy.com/de/certificate/0431f16b6ed95f499bf1"
+  date: "2026-10-01"
+  description: "Credential ID 0431f16b6ed95f499bf1"
+  skills: ["Software Architecture", "Cloud-Native Architecture"]
+  quality: "high"
+
+- title: "Grafana Loki"
+  issuer: "KodeKloud"
+  link: "https://learn.kodekloud.com/certificate/48972524-1054-464e-b0b6-15b53a7b51d3"
+  date: "2026-10-01"
+  description: "Credential ID 48972524-1054-464e-b0b6-15b53a7b51d3"
+  skills: ["Loki", "Grafana"]
+  quality: "low"
+
+- title: "Learning Terraform"
+  issuer: "LinkedIn"
+  link: "https://www.linkedin.com/learning/certificates/a3918202afb6542509a01aeae70bb581f9faaa97005fed76e1bac7ff17c06892/"
+  date: "2026-10-01"
+  description: ""
+  skills: ["Terraform"]
+  quality: "low"
+
+- title: "Linux Foundation Certified System Administrator (LFCS) Cert Prep"
+  issuer: "LinkedIn"
+  link: "https://www.linkedin.com/learning/certificates/f4f9b26a54fa455234b653ccae7d8f24d1e9dca0a03d1d5ed9e87b11aa3eab9b/"
+  date: "2026-10-01"
+  description: ""
+  skills: ["Linux", "Linux System Administration"]
+  quality: "low"
+
+- title: "Microsoft Entra ID Fundamentals"
+  issuer: "LinkedIn"
+  link: "https://www.linkedin.com/learning/certificates/054ef6014fc4b7980f5b84f58bd84faaf90f8f8227a75a155a85a63c38b82336/"
+  date: "2026-10-01"
+  description: ""
+  skills: ["Microsoft Entra ID"]
+  quality: "low"
+
+- title: "Learning the OWASP Top 10"
+  issuer: "LinkedIn"
+  link: "https://www.linkedin.com/learning/certificates/9b213a813e64aaed734ef92a6a1fb01185f7bf3deff2cb9d0a3b0c32803f19c0/"
+  date: "2026-10-01"
+  description: ""
+  skills: ["OWASP", "Web Application Security"]
+  quality: "low"
+
+- title: "Microsoft Power Automate Essential Training"
+  issuer: "LinkedIn"
+  link: "https://www.linkedin.com/learning/certificates/4a84857c72f93b33c99af8a75c7f17928a1d09315e3f26015ddf2df471158256/"
+  date: "2026-10-01"
+  description: ""
+  skills: ["Microsoft Power Automate"]
+  quality: "low"
+
+- title: "Learning Power BI Desktop"
+  issuer: "LinkedIn"
+  link: "https://www.linkedin.com/learning/certificates/3dc128a9b0baa0ca7910f1cda730f1e548903103989e58c21357a45fe1552966/"
+  date: "2026-10-01"
+  description: ""
+  skills: ["Microsoft Power BI", "Data Analysis"]
+  quality: "low"
+
+- title: "Getting Started with Power BI"
+  issuer: "LinkedIn"
+  link: "https://www.linkedin.com/learning/certificates/0b9d0ed8460d7495bfc6594867a25b22489e428b16b6b57e9904c850896b2e7d/"
+  date: "2026-10-01"
+  description: ""
+  skills: ["Microsoft Power BI"]
+  quality: "low"
+
+- title: "Bahn360 Legende-Zertifikat"
+  issuer: "Deutsche Bahn"
+  link: "https://bahn360.deutschebahn.com/certificates/de/zertifikat_legende.pdf"
+  date: "2026-10-01"
+  description: "Credential ID bahn360_874088"
+  skills: ["Railway Systems"]
+  quality: "low"
+
+- title: "Bahn360 Experte-Zertifikat"
+  issuer: "Deutsche Bahn"
+  link: "https://bahn360.deutschebahn.com/certificates/de/zertifikat_experte.pdf"
+  date: "2026-10-01"
+  description: "Credential ID bahn360_138882"
+  skills: ["Railway Systems"]
+  quality: "low"
+
+- title: "Bahn360 Entdecker-Zertifikat"
+  issuer: "Deutsche Bahn"
+  link: "https://bahn360.deutschebahn.com/certificates/de/zertifikat_entdecker.pdf"
+  date: "2026-10-01"
+  description: "Credential ID bahn360_787249"
+  skills: ["Railway Systems"]
+  quality: "low"
+
+- title: "Certified AI-Empowered SAFe® Agilist"
+  issuer: "Scaled Agile, Inc."
+  link: "https://www.credly.com/badges/3f694964-67be-46b9-9e8f-a7858aba5eb9/public_url"
+  date: "2026-09-01"
+  description: "Credential ID 3f694964-67be-46b9-9e8f-a7858aba5eb9"
+  skills: ["Scaled Agile Framework", "Business Agility"]
+  quality: "high"
+
+- title: "Professional Scrum Product Owner™ I (PSPO I)"
+  issuer: "Scrum.org"
+  link: ""
+  date: "2026-07-01"
+  description: ""
+  skills: ["Project Management", "Agile Methodologies"]
+  quality: "high"
+
 - title: "Java EE 8 Essential Training"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/3ebba2ce1444663d4ad45a5a083f9a6d023c72470910036af8d86d355e5fffb3?trk=share_certificate"
+  link: "https://www.linkedin.com/learning/certificates/3ebba2ce1444663d4ad45a5a083f9a6d023c72470910036af8d86d355e5fffb3"
   date: "2026-01-01"
   description: ""
   skills: ["Java", "Java EE"]
@@ -63,7 +199,7 @@
 
 - title: "Linux: Bash Shell and Scripts"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/ca12450b4305ee73b6d94e7d5a8095d8bbf0f0fd7b9644af4c307d362431cb41?trk=share_certificate"
+  link: "https://www.linkedin.com/learning/certificates/ca12450b4305ee73b6d94e7d5a8095d8bbf0f0fd7b9644af4c307d362431cb41"
   date: "2025-09-01"
   description: ""
   skills: ["Shell Scripting"]
@@ -71,7 +207,7 @@
 
 - title: "Quarkus Essential Training"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/2af159cd1b955f6b11c6d5f2402b792696ca24bace5cba10d9f36f5b33ff4c66?trk=share_certificate"
+  link: "https://www.linkedin.com/learning/certificates/2af159cd1b955f6b11c6d5f2402b792696ca24bace5cba10d9f36f5b33ff4c66"
   date: "2025-09-01"
   description: ""
   skills: ["Quarkus"]
@@ -95,7 +231,7 @@
 
 - title: "Kubernetes: GitOps with ArgoCD"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/9ca8a525d5a04306574c4d5531264ef2a3aa6ddb3879a3b29f45c041366dda56?trk=share_certificate"
+  link: "https://www.linkedin.com/learning/certificates/9ca8a525d5a04306574c4d5531264ef2a3aa6ddb3879a3b29f45c041366dda56"
   date: "2025-08-01"
   description: ""
   skills: ["Argo", "Kubernetes"]
@@ -119,7 +255,7 @@
 
 - title: "Model Context Protocol (MCP): Hands-On with Agentic AI"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/2b54c7b67517170627565b35aaa01d8f070c81eefcf1ba2b50a331268fac37c0?trk=share_certificate"
+  link: "https://www.linkedin.com/learning/certificates/2b54c7b67517170627565b35aaa01d8f070c81eefcf1ba2b50a331268fac37c0"
   date: "2025-08-01"
   description: ""
   skills: ["Application Programming Interfaces (API)", "AI Agents"]
@@ -127,7 +263,7 @@
 
 - title: "Learning RxJS"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/289b63e5aa803345e74afe85948b476848200dc7186660e81a8dddb3bd4577f2?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bx7JrqbmTRmKzQk6f37bVlg%3D%3D"
+  link: "https://www.linkedin.com/learning/certificates/47181aff95e963dc9e794145ea97d66a525611d3ff458c6a629074d5c0c92a83/"
   date: "2025-08-01"
   description: ""
   skills: ["RxJS"]
@@ -135,7 +271,7 @@
 
 - title: "Spring Cloud Load Balancing"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/784a5f491d93cbf15af532b32077ed8c57e0a98f625312db6ff23ff9440ea789?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bx7JrqbmTRmKzQk6f37bVlg%3D%3D"
+  link: "https://www.linkedin.com/learning/certificates/784a5f491d93cbf15af532b32077ed8c57e0a98f625312db6ff23ff9440ea789"
   date: "2025-07-01"
   description: ""
   skills: ["Load Balancing", "Spring Cloud"]
@@ -151,7 +287,7 @@
 
 - title: "Learning Angular"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/374d0881562f54f2e2ba6dbf886c8e66e21ddfc2cf8914c247a40f02caa87845?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bx7JrqbmTRmKzQk6f37bVlg%3D%3D"
+  link: "https://www.linkedin.com/learning/certificates/374d0881562f54f2e2ba6dbf886c8e66e21ddfc2cf8914c247a40f02caa87845"
   date: "2025-07-01"
   description: ""
   skills: ["Angular"]
@@ -159,7 +295,7 @@
 
 - title: "TypeScript Essential Training"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/b2ecd14f05023c9b3f0f01c4f391084b370108fe50aa29b96b391efc4088f7fc?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bx7JrqbmTRmKzQk6f37bVlg%3D%3D"
+  link: "https://www.linkedin.com/learning/certificates/b2ecd14f05023c9b3f0f01c4f391084b370108fe50aa29b96b391efc4088f7fc"
   date: "2025-07-01"
   description: ""
   skills: ["TypeScript"]
@@ -167,7 +303,7 @@
 
 - title: "Java Threads"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/d7389c7a9946dd98fc6da3370100c58075f09eeb87eac026fd5d10a1ce2dc9bc?trk=share_certificate"
+  link: "https://www.linkedin.com/learning/certificates/d7389c7a9946dd98fc6da3370100c58075f09eeb87eac026fd5d10a1ce2dc9bc"
   date: "2025-07-01"
   description: ""
   skills: ["Multithreaded Development", "Java"]
@@ -175,7 +311,7 @@
 
 - title: "Pattern Matching for Switch in Java 21"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/4eb842f93fb9e299f85fe91c42dc29ae2bad0882842e89fdd0ca1d1dc9f4b1bf?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bx7JrqbmTRmKzQk6f37bVlg%3D%3D"
+  link: "https://www.linkedin.com/learning/certificates/4eb842f93fb9e299f85fe91c42dc29ae2bad0882842e89fdd0ca1d1dc9f4b1bf"
   date: "2025-07-01"
   description: ""
   skills: ["Java"]
@@ -183,7 +319,7 @@
 
 - title: "Advanced Java: Threads and Concurrency"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/5c6ccad5a1dbd6f43ed90ac51cc81cc361b44a46047b24aa89237d58de79bad7?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bx7JrqbmTRmKzQk6f37bVlg%3D%3D"
+  link: "https://www.linkedin.com/learning/certificates/5c6ccad5a1dbd6f43ed90ac51cc81cc361b44a46047b24aa89237d58de79bad7"
   date: "2025-07-01"
   description: ""
   skills: ["Java Concurrency", "Multithreading", "Java"]
@@ -191,7 +327,7 @@
 
 - title: "Advanced Spring: Application Events"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/7e1e36f0ef13a186e4fae256ddf6108eb7a1c15a1b57861910e572d214480503?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bx7JrqbmTRmKzQk6f37bVlg%3D%3D"
+  link: "https://www.linkedin.com/learning/certificates/7e1e36f0ef13a186e4fae256ddf6108eb7a1c15a1b57861910e572d214480503"
   date: "2025-07-01"
   description: ""
   skills: ["Software Architectural Design", "Spring Framework"]
@@ -207,7 +343,7 @@
 
 - title: "Spring with GraphQL"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/289b63e5aa803345e74afe85948b476848200dc7186660e81a8dddb3bd4577f2?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bx7JrqbmTRmKzQk6f37bVlg%3D%3D"
+  link: "https://www.linkedin.com/learning/certificates/289b63e5aa803345e74afe85948b476848200dc7186660e81a8dddb3bd4577f2"
   date: "2025-07-01"
   description: ""
   skills: ["GraphQL", "Spring Framework"]
@@ -223,7 +359,7 @@
 
 - title: "Agile Software Development"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/ff065f276647e8e335546666e63e844bb34d315b9378f14e6ae8c437526235e5?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BPRhBGPoKRWS2FtNzTIa4yw%3D%3D"
+  link: "https://www.linkedin.com/learning/certificates/ff065f276647e8e335546666e63e844bb34d315b9378f14e6ae8c437526235e5"
   date: "2025-06-01"
   description: ""
   skills: ["Agile Software Development"]
@@ -231,7 +367,7 @@
 
 - title: "Introduction to Spring AI"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/873a588249f3209cd2f760d7b067917a578a07c1654c2da9e0e309bed20c0d92?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BPRhBGPoKRWS2FtNzTIa4yw%3D%3D"
+  link: "https://www.linkedin.com/learning/certificates/873a588249f3209cd2f760d7b067917a578a07c1654c2da9e0e309bed20c0d92"
   date: "2025-06-01"
   description: ""
   skills: ["Spring Framework", "Spring AI"]
@@ -239,7 +375,7 @@
 
 - title: "Introduction to Fintech"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/e54efc403b9cc30d96eff667edbbc77c7a915fffc58e87657b2a255fde75f029?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BPRhBGPoKRWS2FtNzTIa4yw%3D%3D"
+  link: "https://www.linkedin.com/learning/certificates/e54efc403b9cc30d96eff667edbbc77c7a915fffc58e87657b2a255fde75f029"
   date: "2025-06-01"
   description: ""
   skills: ["FinTech"]
@@ -255,7 +391,7 @@
 
 - title: "Java Memory Management: Garbage Collection, JVM Tuning, and Spotting Memory Leaks"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/ed06ea5160c00c150644796743f28bab65854e31d10bfbb523563fac3c85c8aa?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BPRhBGPoKRWS2FtNzTIa4yw%3D%3D"
+  link: "https://www.linkedin.com/learning/certificates/ed06ea5160c00c150644796743f28bab65854e31d10bfbb523563fac3c85c8aa"
   date: "2025-06-01"
   description: ""
   skills: ["Memory Management", "Java", "JVM"]
@@ -263,7 +399,7 @@
 
 - title: "Java Memory Management: Values and References"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/f01be82e8f6efff515bb67892e91526b8637d08fa1b1288138eefa0ea6c9c358?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BPRhBGPoKRWS2FtNzTIa4yw%3D%3D"
+  link: "https://www.linkedin.com/learning/certificates/f01be82e8f6efff515bb67892e91526b8637d08fa1b1288138eefa0ea6c9c358"
   date: "2025-06-01"
   description: ""
   skills: ["Memory Management", "Java"]
@@ -271,7 +407,7 @@
 
 - title: "Advanced Spring: Spring Boot Actuator"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/5f529865e2772d98bfe394ec0ad09e7818976093fc63cbeb112c92d0fb5155ac?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BPRhBGPoKRWS2FtNzTIa4yw%3D%3D"
+  link: "https://www.linkedin.com/learning/certificates/5f529865e2772d98bfe394ec0ad09e7818976093fc63cbeb112c92d0fb5155ac"
   date: "2025-06-01"
   description: ""
   skills: ["Spring Boot", "Spring Framework"]
@@ -279,7 +415,7 @@
 
 - title: "Spring: Spring Security"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/296e70ab9e10e36b1a2cd5cbebfe6c0577d4389b16497f1446eaa5b5fb1213ac?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BPRhBGPoKRWS2FtNzTIa4yw%3D%3D"
+  link: "https://www.linkedin.com/learning/certificates/296e70ab9e10e36b1a2cd5cbebfe6c0577d4389b16497f1446eaa5b5fb1213ac"
   date: "2025-06-01"
   description: ""
   skills: ["Spring Security", "Spring Framework"]
@@ -287,7 +423,7 @@
 
 - title: "Introducing Maven"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/b0b651fa18e31bcc56134083a0c03ab9b815b3a9fc75f2d397df2b2cd0d88a6a?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BPRhBGPoKRWS2FtNzTIa4yw%3D%3D"
+  link: "https://www.linkedin.com/learning/certificates/b0b651fa18e31bcc56134083a0c03ab9b815b3a9fc75f2d397df2b2cd0d88a6a"
   date: "2025-06-01"
   description: ""
   skills: ["Maven"]
@@ -295,7 +431,7 @@
 
 - title: "Top Features of Java 21"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/4eb842f93fb9e299f85fe91c42dc29ae2bad0882842e89fdd0ca1d1dc9f4b1bf?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BPRhBGPoKRWS2FtNzTIa4yw%3D%3D"
+  link: "https://www.linkedin.com/learning/certificates/09ae1a17e22d4615d3fcfdb5c9bde749dea46bce66859f7853713bc3ea9718e6/"
   date: "2025-06-01"
   description: ""
   skills: ["Java"]
@@ -303,7 +439,7 @@
 
 - title: "Kotlin Essential Training: Object-Oriented and Async Code"
   issuer: "LinkedIn"
-  link: "https://www.coursera.org/account/accomplishments/verify/8JRHDIQCIXQM"
+  link: "https://www.linkedin.com/learning/certificates/eff6523250fa733d522b965de31187be60e08dedc374ea3a8397dc5a81225817/"
   date: "2025-06-01"
   description: ""
   skills: ["Kotlin"]
@@ -311,7 +447,7 @@
 
 - title: "Spring Framework in Depth"
   issuer: "LinkedIn"
-  link: "https://www.linkedin.com/learning/certificates/2972cca66f5fc3a61fa6511b141530269d3519d69e02c48ff59418167846ec3b?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BPRhBGPoKRWS2FtNzTIa4yw%3D%3D"
+  link: "https://www.linkedin.com/learning/certificates/2972cca66f5fc3a61fa6511b141530269d3519d69e02c48ff59418167846ec3b"
   date: "2025-06-01"
   description: ""
   skills: ["Spring Framework"]
@@ -320,7 +456,7 @@
 - title: "Apache Kafka Essential Training: Building Scalable Applications"
   issuer: "LinkedIn"
   date: "2025-06-01"
-  link: "https://www.linkedin.com/learning/certificates/3d8fe562d7a2b8f7383773489f680ca487f96bca65ac4e9dff8a2227acb5395e?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BPRhBGPoKRWS2FtNzTIa4yw%3D%3D"
+  link: "https://www.linkedin.com/learning/certificates/3d8fe562d7a2b8f7383773489f680ca487f96bca65ac4e9dff8a2227acb5395e"
   description: ""
   skills: ["Scalable Web Applications", "Apache Kafka"]
   quality: "low"
@@ -328,7 +464,7 @@
 - title: "Apache Kafka Essential Training: Getting Started"
   issuer: "LinkedIn"
   date: "2025-06-01"
-  link: "https://www.linkedin.com/learning/certificates/d7007f2054ece8c61d7ee54a5228547d4a79818d5c98c6b15f28536577bbcd40?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BPRhBGPoKRWS2FtNzTIa4yw%3D%3D"
+  link: "https://www.linkedin.com/learning/certificates/d7007f2054ece8c61d7ee54a5228547d4a79818d5c98c6b15f28536577bbcd40"
   description: ""
   skills: ["Apache Kafka"]
   quality: "low"
@@ -336,7 +472,7 @@
 - title: "Spring Boot 3 Essential Training"
   issuer: "LinkedIn"
   date: "2025-06-01"
-  link: "https://www.linkedin.com/learning/certificates/91397afc7d7ea7845f1ac5994384a5ea305852ccd0bb87b2836222b13e5ac14c?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BPRhBGPoKRWS2FtNzTIa4yw%3D%3D"
+  link: "https://www.linkedin.com/learning/certificates/91397afc7d7ea7845f1ac5994384a5ea305852ccd0bb87b2836222b13e5ac14c"
   description: ""
   skills: ["Spring Boot", "Spring Framework"]
   quality: "low"
@@ -344,7 +480,7 @@
 - title: "Jakarta EE Overview"
   issuer: "LinkedIn"
   date: "2025-06-01"
-  link: "https://www.linkedin.com/learning/certificates/fe319a9f72ecab05feb252bbf070a3dc6b3ec2daa727acb2ea18935e9d9891e0?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BPRhBGPoKRWS2FtNzTIa4yw%3D%3D"
+  link: "https://www.linkedin.com/learning/certificates/fe319a9f72ecab05feb252bbf070a3dc6b3ec2daa727acb2ea18935e9d9891e0"
   description: ""
   skills: ["Jakarta EE", "Java"]
   quality: "low"
@@ -360,15 +496,7 @@
 - title: "Oracle Certified Professional, Java SE 17 Developer"
   issuer: "Oracle"
   date: "2024-08-01"
-  link: ""
+  link: "https://catalog-education.oracle.com/pls/certview/sharebadge?id=573AB30F9DC3CB4DDFD69DFCF7C1A024C626E3B6157E753D58E4B362B3BAD0EC"
   description: "Credential ID 573AB30F9DC3CB4DDFD69DFCF7C1A024C626E3B6157E753D58E4B362B3BAD0EC"
   skills: ["Java"]
-  quality: "high"
-
-- title: "AWS Certified Solutions Architect – Associate"
-  issuer: "Amazon Web Services (AWS)"
-  date: "2024-01-15"
-  link: "https://aws.amazon.com/certification/certified-solutions-architect-associate/"
-  description: "Covers architecting secure, resilient, high-performing, and cost-optimized systems on AWS."
-  skills: ["Amazon Web Services (AWS)", "Cloud Architecture"]
   quality: "high"

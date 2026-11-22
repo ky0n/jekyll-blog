@@ -23,7 +23,6 @@
 - Hero-Bereich mit Kurzvorstellung: Name, Rolle, Kernkompetenz
 - Klarer Call-to-Action Button ("Projekt anfragen" / "Mich buchen")
 - Link zur Freelance/Services-Seite
-- Bestehende Terminal-Animation kann Teil davon bleiben
 
 ---
 
