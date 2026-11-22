@@ -4,8 +4,9 @@ title:  "„Hello blog“ - mein neuer Blog/neue Webseite"
 date:   2025-02-09 14:54:44 +0100
 categories: jekyll update
 tags: [jekyll, Hendrik, Schick, Schweiz, zurich]
+description: "Mein neuer Blog mit Jekyll, GitHub Pages und eigener Domain. Wie ich die Seite aufgesetzt habe und was hier geplant ist."
 ---
-Hello Blog!
+Hallöchen Blog!
 
 Am 9.2.2025, heute, habe ich mir vorgenommen diesen Blog zu veröffentlichen mit [Jekyll](https://jekyllrb.com/) als Framework
 um die statische Webseite zu erstellen. Das hat tatsächlich ganz gut geklappt.
@@ -23,5 +24,7 @@ Wenn mir andere interessante Dinge über den Weg laufen, können aber auch ander
 
 Bei Fragen, Kritik oder Anregungen kannst Du mir gerne eine E-Mail schreiben an [mail@hendrik-schick.me](mailto:mail@hendrik-schick.me).
 
-Besten Dank fürs Lesen und herzliche Grüsse aus Züri!  
-Hendrik 
+Mehr über mich findest du auf der [Über mich](/about)-Seite.
+
+Besten Dank fürs Lesen und Grüsse aus Züri!
+~ Hendrik 

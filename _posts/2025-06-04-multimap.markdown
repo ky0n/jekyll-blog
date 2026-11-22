@@ -4,6 +4,7 @@ title:  "MapMulti - die oft übersehene Stream Operation aus Java 16"
 date:   2025-06-04 17:50:42 +0100
 categories: jekyll update
 tags: [java, stream, mapMulti, jdk, java16, deutsch]
+description: "mapMulti aus Java 16: die oft übersehene Alternative zu flatMap für effiziente One-to-Many Stream-Transformationen."
 ---
 
 ## mapMulti - intermediate Stream Operation und alternative zu flatMap

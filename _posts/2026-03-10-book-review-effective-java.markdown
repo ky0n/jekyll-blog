@@ -4,6 +4,7 @@ title:  "Book Review - Effective Java"
 date:   2026-03-10 00:03:20 +0100
 categories: book review
 tags: [java, book, review, effective, bloch, joshua, serialization]
+description: "Review of Effective Java by Joshua Bloch — 90 best practices for writing better Java, from design patterns to concurrency and serialization."
 ---
 
 # Book Review: <u>Effective Java</u> (Author: Joshua Bloch)
@@ -110,6 +111,9 @@ The `readResolve`-method is also called via reflection by the serialization mech
 Josh Bloch, who authored a lot of code for the JDK itself, especially in the early 2000s, shares his deep knowledge of Java and how to/how to not use effectively the Java programming language.
 I can recommend the book for non-beginner to experienced Java-Developers, who want to dig deeper into how to write clean, basic Java code and what should be avoided.
 The book is iconic and still relevant today, even though it doesn't cover the most modern features of Java.
+
+See also: [Java Serialization Cheatsheet](/cheatsheets/java-serialization/) for a quick reference on serialization in Java.
+
 ---
 
 [1]: Bloch, J. (2018). Effective Java (3rd ed.). Addison-Wesley Professional.

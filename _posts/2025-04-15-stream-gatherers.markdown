@@ -4,6 +4,7 @@ title:  "Einblick in Javas Stream Gatherers"
 date:   2025-04-15 17:50:42 +0100
 categories: jekyll update
 tags: [java, stream, gatherer, jdk, java24]
+description: "Stream Gatherers in Java 24: die neue intermediäre Stream-Operation für zustandsbehaftete, individuell anpassbare Transformationen."
 ---
 
 ## Neues _finalisiertes_ Feature in Java 24

@@ -1,5 +1,16 @@
 # Website Improvement Backlog
 
+## Erledigt
+
+- ~~Social Links bereinigen~~ — Steam, Telegram, Meetup entfernt
+- ~~Meta-Descriptions für alle Blogposts~~ — alle 5 Posts haben jetzt `description` im Front-Matter
+- ~~Navigation optimieren~~ — "Other" Dropdown für Chess/Cheatsheets, About Me umbenannt
+- ~~Schema.org Structured Data~~ — Person JSON-LD seitenweit, BlogPosting JSON-LD pro Post
+- ~~Interne Verlinkung~~ — Cross-Links zwischen Posts und zu Cheatsheets hinzugefügt
+- ~~Google Search Console vorbereitet~~ — `google_site_verification` in `_config.yml` bereit, Code muss noch eingetragen werden
+
+---
+
 ## Prio 1 - Quick Wins
 
 ### Freelance-Seite veröffentlichen
@@ -13,17 +24,6 @@
 - Klarer Call-to-Action Button ("Projekt anfragen" / "Mich buchen")
 - Link zur Freelance/Services-Seite
 - Bestehende Terminal-Animation kann Teil davon bleiben
-
-### Meta-Descriptions für alle Blogposts
-- Aktuell fehlt `description:` im Front-Matter der Posts
-- Google generiert sonst eigene (schlechte) Snippets
-- Jeder Post braucht eine ~150 Zeichen Description
-- Betrifft: alle 5 bestehenden Posts + zukünftige
-
-### Social Links bereinigen
-- Steam und Telegram aus `_config.yml` Social Links entfernen
-- Wirken unprofessionell auf einer Consultant-Website
-- Behalten: GitHub, LinkedIn, BlueSky
 
 ---
 
@@ -49,11 +49,9 @@
 - Kundenzitate oder LinkedIn-Empfehlungen einbinden
 - Auf der Freelance-Seite oder als eigene Section auf der Startseite
 - 2-3 kurze Quotes reichen für den Anfang
-- Optionale Erweiterung: LinkedIn Recommendations API oder manuelle Pflege
 
 ### Blogfrequenz erhöhen
 - Ziel: mindestens 2 Posts pro Monat
-- Jeder Post ist eine potenzielle Google-Einstiegsseite
 - Content-Ideen:
   - Java-Neuheiten bei jedem Release
   - Kubernetes/Cloud Praxistipps
@@ -72,19 +70,6 @@
   - B) Alles Englisch (mehr Reichweite, härterer Wettbewerb)
   - C) Zweisprachig mit hreflang-Tags und klarer Trennung
 - Entscheidung beeinflusst SEO und Zielgruppe
-
-### Navigation auf Verkauf optimieren
-- Aktuelle Reihenfolge: About | Certificates | Cheatsheets | Chess
-- Vorschlag: **Services** | About | Blog | Certificates | Cheatsheets
-- Chess als Easter Egg behalten, aber aus Hauptnav entfernen
-- "Blog" explizit in Nav aufnehmen (aktuell nur über Startseite erreichbar)
-
-### Structured Data / Schema.org
-- JSON-LD Markup für:
-  - Person (Consultant-Profil)
-  - BlogPosting (für jeden Artikel)
-  - ProfessionalService (für die Freelance-Seite)
-- Verbessert Rich Snippets in Google-Suchergebnissen
 
 ### Kontaktformular
 - Aktuell nur E-Mail-Link als Kontaktmöglichkeit
