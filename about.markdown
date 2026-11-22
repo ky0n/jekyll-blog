@@ -3,7 +3,7 @@ layout: page
 title: About Me
 permalink: /about/
 ---
-<img src="/assets/images/profil.jpg" alt="Hendrik Schick" width="500">
+<img class="profile-photo" src="/assets/images/profil.jpg" alt="Hendrik Schick" width="200" height="200">
 
 ## A bit about me ...
 Hey there.
@@ -49,7 +49,7 @@ With over 5 years of professional experience, I have worked across the full soft
 
 Before that, I gained early hands-on experience as a **working student web developer** at Huck IT in Darmstadt, building a room reservation system with Vue.js. During my Bachelor's, I completed an **internship at Apinauten GmbH** in Leipzig, where I worked on modularizing and containerizing a Backend-as-a-Service platform. I also worked as a **software tester** at Gesundheitsforen Leipzig, developing end-to-end tests with Selenium.
 
-My core tech stack includes **Java**, **Spring Boot**, **Angular**, **Kubernetes/OpenShift**, and **CI/CD** with ArgoCD, Tekton, and Jenkins. I hold certifications including **Oracle Certified Java Developer**, **Spring Professional Developer**, **CKAD**, **iSAQB CPSA-F**, **AWS Cloud Professional**, and **Azure Fundamentals**.
+My core tech stack includes **Java**, **Spring Boot**, **Angular**, **Kubernetes/OpenShift**, and **CI/CD** with ArgoCD, Tekton, and Jenkins. I hold certifications including **Oracle Certified Java Developer**, **Spring Professional Developer**, **CKAD**, **iSAQB CPSA-F**, **AWS Certified Cloud Practitioner**, and **Azure Fundamentals**.
 
 I studied Computer Science at **HTWK Leipzig** (BSc) and **TU Darmstadt** (MSc), with a focus on Software Architecture and Deep Learning.
 

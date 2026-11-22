@@ -16,6 +16,20 @@ layout: default
     {{ content }}
   </div>
 
+  <nav class="post-nav" aria-label="More posts">
+    {%- if page.previous %}
+    <a class="post-nav-link post-nav-prev" href="{{ page.previous.url | relative_url }}">
+      <span class="post-nav-label">← Previous</span>{{ page.previous.title | escape }}
+    </a>
+    {%- endif %}
+    {%- if page.next %}
+    <a class="post-nav-link post-nav-next" href="{{ page.next.url | relative_url }}">
+      <span class="post-nav-label">Next →</span>{{ page.next.title | escape }}
+    </a>
+    {%- endif %}
+  </nav>
+  <p class="post-back"><a href="{{ "/" | relative_url }}">← All posts</a></p>
+
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
 
