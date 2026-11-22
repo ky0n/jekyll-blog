@@ -11,7 +11,7 @@ description: "Get in touch with Hendrik Schick – Fullstack & DevOps Software E
   <a class="contact-card" href="mailto:mail@hendrik-schick.me">
     <span class="contact-label">Email</span>
     <span class="contact-value">mail@hendrik-schick.me</span>
-    <span class="contact-hint">Best way to reach me – I usually reply within a few days.</span>
+    <span class="contact-hint">Best way to reach me – I usually reply within a day.</span>
   </a>
 
   <div class="contact-card contact-card-static">
