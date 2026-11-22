@@ -5,7 +5,7 @@ permalink: /contact/
 description: "Get in touch with Hendrik Schick – Fullstack & DevOps Software Engineer in Zurich."
 ---
 
-<p class="page-subtitle">Questions about a project, a collaboration or one of my articles? I'm happy to hear from you.</p>
+<p class="page-subtitle">Get in touch about projects, collaborations or my articles.</p>
 
 <div class="contact-grid">
   <a class="contact-card" href="mailto:mail@hendrik-schick.me">

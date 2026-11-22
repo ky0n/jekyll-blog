@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About Me
+title: About
 permalink: /about/
 ---
 <img class="profile-photo" src="/assets/images/profil.jpg" alt="Hendrik Schick" width="200" height="200">

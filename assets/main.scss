@@ -927,11 +927,10 @@ a.contact-card .contact-value {
 @media (min-width: 601px) and (max-width: 960px) {
   .site-title {
     font-size: 0.85rem;
-    display: inline-block;
     white-space: normal;
+  }
+  .site-branding {
     max-width: 48%;
-    line-height: 1.35;
-    padding: 13px 0;
   }
   .page-link {
     margin-left: 14px;
@@ -941,4 +940,40 @@ a.contact-card .contact-value {
 
 .contact-value a {
   color: var(--accent);
+}
+
+
+/* --- Header branding: name/title + motto --- */
+.site-branding {
+  float: left;
+  padding: 11px 0;
+  line-height: 1.3;
+}
+
+.site-branding .site-title {
+  float: none;
+  display: inline-block;
+  line-height: 1.3 !important;
+  padding: 0 !important;
+}
+
+.site-motto {
+  display: block;
+  text-align: center;
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text-main);
+  margin-top: 2px;
+}
+
+@media (max-width: 600px) {
+  .site-branding {
+    max-width: 75%;
+  }
+  .site-branding .site-title {
+    max-width: none;
+    white-space: normal;
+  }
 }

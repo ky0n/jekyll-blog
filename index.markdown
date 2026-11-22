@@ -10,7 +10,7 @@ list_title: Blog
     <p class="intro-text">With deep industry experience in enterprise and insurance software, I build reliable backends, web frontends and cloud platforms with Java, Spring Boot, Angular and Kubernetes — with AI tools as a natural part of how I design, build and ship. Here I write about Java and software engineering.</p>
     <p class="intro-links">
       <a class="btn btn-primary" href="/contact/">Get in touch</a>
-      <a class="btn" href="/about/">About me</a>
+      <a class="btn" href="/about/">About</a>
       <a class="btn" href="/certificates/">Certificates</a>
     </p>
   </div>
