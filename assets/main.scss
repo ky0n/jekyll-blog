@@ -860,3 +860,85 @@ blockquote {
   font-size: 1rem;
   line-height: 1;
 }
+
+
+/* --- Contact page --- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.contact-grid .contact-card:first-child {
+  grid-column: 1 / -1;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1.1rem 1.25rem;
+  background: var(--secondary-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-decoration: none !important;
+  transition: border-color 0.15s ease;
+}
+
+a.contact-card:hover {
+  border-color: var(--accent);
+}
+
+.contact-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.contact-value {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-main);
+  overflow-wrap: anywhere;
+}
+
+a.contact-card .contact-value {
+  color: var(--accent);
+}
+
+.contact-hint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 600px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Header width: title + nav need more room than the reading column --- */
+.site-header .wrapper {
+  max-width: 1080px;
+}
+
+@media (min-width: 601px) and (max-width: 960px) {
+  .site-title {
+    font-size: 0.85rem;
+    display: inline-block;
+    white-space: normal;
+    max-width: 48%;
+    line-height: 1.35;
+    padding: 13px 0;
+  }
+  .page-link {
+    margin-left: 14px;
+    font-size: 0.85rem;
+  }
+}
+
+.contact-value a {
+  color: var(--accent);
+}

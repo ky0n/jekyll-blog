@@ -1,0 +1,5 @@
+{%- comment -%}
+  Renders the phone number via JS so it is not in the HTML source as plain text
+  (reduces scraping). Usage: {% include phone.html class="..." %}
+{%- endcomment -%}
+<a class="js-phone {{ include.class }}" href="#" data-p="NDEgNzggMjYzIDYwIDIw">Phone number (enable JavaScript)</a>

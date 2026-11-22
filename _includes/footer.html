@@ -16,3 +16,11 @@
   </div>
 
 </footer>
+
+<script>
+  document.querySelectorAll('.js-phone').forEach(function (el) {
+    var n = '+' + atob(el.dataset.p);
+    el.textContent = n;
+    el.href = 'tel:' + n.replace(/\s/g, '');
+  });
+</script>

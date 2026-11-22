@@ -58,6 +58,7 @@ disqus:
 header_pages:
   - about.markdown
   - certificates.markdown
+  - contact.markdown
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
