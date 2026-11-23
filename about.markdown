@@ -6,38 +6,29 @@ permalink: /about/
 <img class="profile-photo" src="/assets/images/profil.jpg" alt="Hendrik Schick" width="200" height="200">
 
 ## Summary
-I'm a Fullstack & DevOps Software Engineer based in the Zurich area with over 5 years of professional experience in backend, frontend and cloud development. I hold a Master's in Computer Science from TU Darmstadt and a Bachelor's from HTWK Leipzig.
+I'm a Fullstack & DevOps Software Engineer based in the Zurich area with over 5 years of professional experience in backend, frontend and cloud development. I hold a Master's in Computer Science from the Technical University of Darmstadt and a Bachelor's from HTWK Leipzig.
 Originally from the Leipzig area, I moved to Switzerland after graduating. After 2.5 years as a software engineer at Adcubum AG, I now work as a Fullstack & DevOps Engineer Consultant at ERNI AG.
 
 ---
 ## Experience
 
-With over 5 years of professional experience, I have worked across the full software development lifecycle — from backend and frontend development to DevOps and CI/CD.
+With over 5 years of professional experience, I have worked across the full software development lifecycle — from backend and frontend development to DevOps and CI/CD. Alongside my studies I gained early hands-on experience through side jobs, freelance work and an internship.
 
-<table style="width:100%; border-collapse:collapse; background:var(--surface); border:1px solid var(--border); border-radius:8px; overflow:hidden;">
+<table class="cv-table">
   <thead>
-    <tr>
-      <th style="padding:0.85rem 1rem; color:var(--accent); background:rgba(var(--accent-rgb),0.1); border-bottom:1px solid var(--border);">When</th>
-      <th style="padding:0.85rem 1rem; color:var(--accent); background:rgba(var(--accent-rgb),0.1); border-bottom:1px solid var(--border);">Role</th>
-      <th style="padding:0.85rem 1rem; color:var(--accent); background:rgba(var(--accent-rgb),0.1); border-bottom:1px solid var(--border);">Company</th>
-    </tr>
+    <tr><th>When</th><th>Role</th><th>Where</th></tr>
   </thead>
   <tbody>
-    <tr>
-      <td style="padding:0.85rem 1rem; color:var(--text-main); border-bottom:1px solid var(--border);">2025 – today</td>
-      <td style="padding:0.85rem 1rem; color:var(--text-main); border-bottom:1px solid var(--border);">Fullstack & DevOps Engineer Consultant</td>
-      <td style="padding:0.85rem 1rem; color:var(--text-main); border-bottom:1px solid var(--border);">ERNI AG, Zurich</td>
-    </tr>
-    <tr>
-      <td style="padding:0.85rem 1rem; color:var(--text-main); border-bottom:1px solid var(--border);">2024 – 2025</td>
-      <td style="padding:0.85rem 1rem; color:var(--text-main); border-bottom:1px solid var(--border);">Software Engineer – Framework Team</td>
-      <td style="padding:0.85rem 1rem; color:var(--text-main); border-bottom:1px solid var(--border);">Adcubum AG, Zurich</td>
-    </tr>
-    <tr>
-      <td style="padding:0.85rem 1rem; color:var(--text-main);">2022 – 2024</td>
-      <td style="padding:0.85rem 1rem; color:var(--text-main);">Software Engineer – Business Developer</td>
-      <td style="padding:0.85rem 1rem; color:var(--text-main);">Adcubum AG, Zurich</td>
-    </tr>
+    <tr><td>2025 – today</td><td>AI-native Fullstack & DevOps Engineer Consultant</td><td>ERNI AG, Zurich</td></tr>
+    <tr><td>Current</td><td>Guest student – advanced Computer Science modules <span class="skill-tag">Studies</span></td><td>Technical University of Munich</td></tr>
+    <tr><td>2024 – 2025</td><td>Software Engineer – Framework Team</td><td>Adcubum AG, Zurich</td></tr>
+    <tr><td>2022 – 2024</td><td>Software Engineer – Business Developer</td><td>Adcubum AG, Zurich</td></tr>
+    <tr><td>2019 – 2020</td><td>Working Student Web Developer <span class="skill-tag">Side job</span></td><td>Huck IT, Darmstadt</td></tr>
+    <tr><td>2019 – 2022</td><td>MSc Computer Science <span class="skill-tag">Studies</span></td><td>Technical University of Darmstadt</td></tr>
+    <tr><td>2018 – 2019</td><td>Freelance Web Developer – e-car rental platform <span class="skill-tag">Side job</span></td><td>Remote</td></tr>
+    <tr><td>2017</td><td>Software Engineer Intern & Bachelor Thesis <span class="skill-tag">Internship</span></td><td>Apinauten GmbH, Leipzig</td></tr>
+    <tr><td>2016 – 2017</td><td>Software Tester <span class="skill-tag">Side job</span></td><td>Gesundheitsforen Leipzig</td></tr>
+    <tr><td>2015 – 2018</td><td>BSc Computer Science <span class="skill-tag">Studies</span></td><td>HTWK Leipzig</td></tr>
   </tbody>
 </table>
 
@@ -49,7 +40,7 @@ Before that, I gained early hands-on experience as a **working student web devel
 
 My core tech stack includes **Java**, **Spring Boot**, **Angular**, **Kubernetes/OpenShift**, and **CI/CD** with ArgoCD, Tekton, and Jenkins. I hold certifications including **Oracle Certified Java Developer**, **Spring Professional Developer**, **CKAD**, **iSAQB CPSA-F**, **AWS Certified Cloud Practitioner**, and **Azure Fundamentals**.
 
-I studied Computer Science at **HTWK Leipzig** (BSc) and **TU Darmstadt** (MSc), with a focus on Software Architecture and Deep Learning. Alongside my job, I'm currently a guest student at the **Technical University of Munich (TUM)**, attending several advanced computer science modules.
+I studied Computer Science at **HTWK Leipzig** (BSc) and the **Technical University of Darmstadt** (MSc), with a focus on Software Architecture and Deep Learning. Alongside my job, I'm currently a guest student at the **Technical University of Munich**, attending several advanced computer science modules.
 
 Beyond my day-to-day work, I regularly attend **Java User Group** meetups and participate in **Hackergarten** events — contributing to open-source projects and staying connected with the developer community.
 

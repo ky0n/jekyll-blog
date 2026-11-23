@@ -977,3 +977,7 @@ a.contact-card .contact-value {
     white-space: normal;
   }
 }
+
+/* --- About: CV table --- */
+.cv-table td:first-child { white-space: nowrap; color: var(--text-muted) !important; }
+.cv-table .skill-tag { margin-left: 0.4rem; white-space: nowrap; }
