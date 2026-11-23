@@ -19,8 +19,8 @@ With over 5 years of professional experience, I have worked across the full soft
     <tr><th>When</th><th>Role</th><th>Where</th></tr>
   </thead>
   <tbody>
+    <tr><td>2026 – today</td><td>Guest student – advanced Computer Science modules <span class="skill-tag">Studies</span></td><td>Technical University of Munich</td></tr>
     <tr><td>2025 – today</td><td>AI-native Fullstack & DevOps Engineer Consultant</td><td>ERNI AG, Zurich</td></tr>
-    <tr><td>Current</td><td>Guest student – advanced Computer Science modules <span class="skill-tag">Studies</span></td><td>Technical University of Munich</td></tr>
     <tr><td>2024 – 2025</td><td>Software Engineer – Framework Team</td><td>Adcubum AG, Zurich</td></tr>
     <tr><td>2022 – 2024</td><td>Software Engineer – Business Developer</td><td>Adcubum AG, Zurich</td></tr>
     <tr><td>2019 – 2020</td><td>Working Student Web Developer <span class="skill-tag">Side job</span></td><td>Huck IT, Darmstadt</td></tr>
