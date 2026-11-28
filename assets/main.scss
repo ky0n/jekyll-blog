@@ -241,6 +241,32 @@ a:hover {
   color: var(--text-muted);
 }
 
+/* Skills with at least 2 certificates: shown first, more prominent */
+.filter-drawer-inner { flex-direction: column; gap: 0 !important; }
+.filter-group { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.filter-group--more {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+.filter-btn--multi {
+  color: var(--text-main);
+  border-color: rgba(var(--accent-rgb), 0.6);
+  background: rgba(var(--accent-rgb), 0.12);
+  font-size: 0.85rem;
+  padding: 0.35rem 0.85rem;
+}
+.filter-count {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0 0.4rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  background: rgba(var(--accent-rgb), 0.25);
+  color: var(--accent);
+}
+.filter-group--more .filter-btn { font-size: 0.75rem; }
+
 .filter-btn.active, .filter-toggle-btn.active {
   background: rgba(var(--accent-rgb), 0.1);
   border-color: var(--accent);
@@ -464,7 +490,7 @@ a:hover {
 }
 
 .filter-drawer.open {
-  max-height: 600px;
+  max-height: 1600px;
 }
 
 .toggle-icon {
@@ -729,11 +755,19 @@ blockquote {
 }
 
 .intro-lead {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
   color: var(--text-main);
-  margin: 0 0 0.5rem;
-  line-height: 1.4;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.intro-role {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0.2rem 0 0.75rem;
 }
 
 .intro-text {

@@ -18,9 +18,27 @@
   
   <div id="filter-drawer" class="filter-drawer">
     <div class="filter-drawer-inner">
-      {% for skill in all_skills %}
-        <button class="filter-btn" data-filter="{{ skill }}">{{ skill }}</button>
-      {% endfor %}
+      {%- assign multi_skills = "" | split: "," -%}
+      {%- assign single_skills = "" | split: "," -%}
+      {%- for skill in all_skills -%}
+        {%- assign skill_count = site.data.certificates | where_exp: "c", "c.skills contains skill" | size -%}
+        {%- if skill_count >= 2 -%}
+          {%- assign multi_skills = multi_skills | push: skill -%}
+        {%- else -%}
+          {%- assign single_skills = single_skills | push: skill -%}
+        {%- endif -%}
+      {%- endfor %}
+      <div class="filter-group filter-group--main">
+        {%- for skill in multi_skills %}
+        {%- assign skill_count = site.data.certificates | where_exp: "c", "c.skills contains skill" | size %}
+        <button class="filter-btn filter-btn--multi" data-filter="{{ skill }}" title="{{ skill_count }} certificates">{{ skill }} <span class="filter-count">{{ skill_count }}</span></button>
+        {%- endfor %}
+      </div>
+      <div class="filter-group filter-group--more">
+        {%- for skill in single_skills %}
+        <button class="filter-btn" data-filter="{{ skill }}" title="1 certificate">{{ skill }}</button>
+        {%- endfor %}
+      </div>
     </div>
   </div>
 </div>
